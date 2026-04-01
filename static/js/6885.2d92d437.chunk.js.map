@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/6885.2d92d437.chunk.js","mappings":"0JAEA,UAAeA,EAAgB,O","sources":["pages/Derivatives/ConstantFunction/index.js"],"sourcesContent":["import ConstantFunction from \"./ConstantFunction\";\n\nexport default ConstantFunction;\n"],"names":["ConstantFunction"],"sourceRoot":""}
