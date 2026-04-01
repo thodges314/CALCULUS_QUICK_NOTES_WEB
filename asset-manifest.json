@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/CALCULUS_QUICK_NOTES_WEB/static/css/main.76a15f4d.css",
-    "main.js": "/CALCULUS_QUICK_NOTES_WEB/static/js/main.880f6b9d.js",
+    "main.js": "/CALCULUS_QUICK_NOTES_WEB/static/js/main.b085d830.js",
     "static/js/5668.ae8b5fe7.chunk.js": "/CALCULUS_QUICK_NOTES_WEB/static/js/5668.ae8b5fe7.chunk.js",
     "static/js/7766.f863da88.chunk.js": "/CALCULUS_QUICK_NOTES_WEB/static/js/7766.f863da88.chunk.js",
     "static/js/8500.5de0c377.chunk.js": "/CALCULUS_QUICK_NOTES_WEB/static/js/8500.5de0c377.chunk.js",
@@ -153,7 +153,7 @@
     "static/js/3674.c5d0a608.chunk.js": "/CALCULUS_QUICK_NOTES_WEB/static/js/3674.c5d0a608.chunk.js",
     "index.html": "/CALCULUS_QUICK_NOTES_WEB/index.html",
     "main.76a15f4d.css.map": "/CALCULUS_QUICK_NOTES_WEB/static/css/main.76a15f4d.css.map",
-    "main.880f6b9d.js.map": "/CALCULUS_QUICK_NOTES_WEB/static/js/main.880f6b9d.js.map",
+    "main.b085d830.js.map": "/CALCULUS_QUICK_NOTES_WEB/static/js/main.b085d830.js.map",
     "5668.ae8b5fe7.chunk.js.map": "/CALCULUS_QUICK_NOTES_WEB/static/js/5668.ae8b5fe7.chunk.js.map",
     "7766.f863da88.chunk.js.map": "/CALCULUS_QUICK_NOTES_WEB/static/js/7766.f863da88.chunk.js.map",
     "8500.5de0c377.chunk.js.map": "/CALCULUS_QUICK_NOTES_WEB/static/js/8500.5de0c377.chunk.js.map",
@@ -306,6 +306,6 @@
   },
   "entrypoints": [
     "static/css/main.76a15f4d.css",
-    "static/js/main.880f6b9d.js"
+    "static/js/main.b085d830.js"
   ]
 }
