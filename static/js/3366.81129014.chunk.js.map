@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/3366.81129014.chunk.js","mappings":"8KAAA,MAEA,EAFkBA,KAAMC,EAAAA,EAAAA,KAAAC,EAAAA,SAAA,G","sources":["pages/Theorems/RollesTheorem/RollesTheorem.jsx"],"sourcesContent":["const Component = () => <></>;\n\nexport default Component;\n"],"names":["Component","_jsx","_Fragment"],"sourceRoot":""}

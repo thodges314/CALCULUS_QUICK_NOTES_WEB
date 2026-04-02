@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkCalculus_QuickNotes=self.webpackChunkCalculus_QuickNotes||[]).push([[6993,5956],{5956:function(u,e,t){t.r(e);var a=t(184);e.default=function(){return(0,a.jsx)(a.Fragment,{})}},6993:function(u,e,t){t.r(e);var a=t(5956);e.default=a.default}}]);
-//# sourceMappingURL=6993.98865bed.chunk.js.map

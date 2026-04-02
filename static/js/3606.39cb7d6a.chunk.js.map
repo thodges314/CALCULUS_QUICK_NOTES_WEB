@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/3606.39cb7d6a.chunk.js","mappings":"8KAAA,MAEA,EAFkBA,KAAMC,EAAAA,EAAAA,KAAAC,EAAAA,SAAA,G","sources":["pages/InfiniteSeries/RatioTest/RatioTest.jsx"],"sourcesContent":["const Component = () => <></>;\n\nexport default Component;\n"],"names":["Component","_jsx","_Fragment"],"sourceRoot":""}
