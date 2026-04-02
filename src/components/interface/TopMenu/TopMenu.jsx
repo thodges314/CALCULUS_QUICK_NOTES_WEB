@@ -13,12 +13,13 @@ const backgroundColor = hexToRgba(themeBackground, 1);
 const magentaHeavy = hexToRgba(synthSunsetMagenta, 1);
 // const magentaLight = hexToRgba(synthSunsetMagenta, 0.1);
 
-const TopMenu = ({ toggleDrawer = () => {} }) => {
+const TopMenu = ({ toggleDrawer = () => { } }) => {
   const reactLocation = useLocation();
   const headerArray = location(reactLocation.pathname);
   const navigate = useNavigate();
   const navigateHome = () => {
     navigate("/");
+    navigate(0);
   };
 
   return (
@@ -43,7 +44,7 @@ const TopMenu = ({ toggleDrawer = () => {} }) => {
             aria-label="open drawer"
             edge="start"
             onClick={toggleDrawer}
-            // sx={{ mr: 2, display: { sm: "none" } }}
+          // sx={{ mr: 2, display: { sm: "none" } }}
           >
             <MenuIcon />
           </IconButton>
@@ -72,7 +73,7 @@ const TopMenu = ({ toggleDrawer = () => {} }) => {
             aria-label="open drawer"
             edge="start"
             onClick={navigateHome}
-            // sx={{ mr: 2, display: { sm: "none" } }}
+          // sx={{ mr: 2, display: { sm: "none" } }}
           >
             <HouseIcon />
           </IconButton>
