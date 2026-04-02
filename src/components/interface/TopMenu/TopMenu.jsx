@@ -3,7 +3,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import HouseIcon from "@mui/icons-material/House";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { location, hexToRgba } from "utils/utils";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import {
   synthSunsetMagenta,
   themeBackground,
@@ -14,11 +14,11 @@ const magentaHeavy = hexToRgba(synthSunsetMagenta, 1);
 // const magentaLight = hexToRgba(synthSunsetMagenta, 0.1);
 
 const TopMenu = ({ toggleDrawer = () => {} }) => {
-  const headerArray = location();
+  const reactLocation = useLocation();
+  const headerArray = location(reactLocation.pathname);
   const navigate = useNavigate();
   const navigateHome = () => {
     navigate("/");
-    navigate(0);
   };
 
   return (

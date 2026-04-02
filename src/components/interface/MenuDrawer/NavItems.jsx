@@ -18,7 +18,6 @@ const NavItems = () => {
     isOpen(item) ? handleClose(item) : setOpen(item);
   const handleNavigate = (entry, item) => {
     navigate(`/${toPascalCase(entry.name)}/${toPascalCase(item)}`);
-    navigate(0);
   };
 
   const makeNested = (entry, idx) => (

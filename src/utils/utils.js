@@ -12,8 +12,8 @@ export const toPascalCase = (string) =>
     )
     .replace(new RegExp(/\w/), (s) => s.toUpperCase());
 
-export const location = () => {
-  const [PCCategory, PCSubcategory] = window.location.pathname
+export const location = (path = "/") => {
+  const [PCCategory, PCSubcategory] = path
     .split("/")
     .slice(1);
   if (!PCCategory) return ["Home", ""];
