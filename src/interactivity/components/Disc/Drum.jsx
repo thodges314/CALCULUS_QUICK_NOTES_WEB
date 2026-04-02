@@ -5,7 +5,7 @@ import {
   lightGrey,
   synthSunsetPink,
 } from "interactivity/resources/constants/colors";
-import { darkPhongMaterial } from "interactivity/resources/materials";
+import { DarkPhongMaterial, TranslucentNormalMaterial } from "interactivity/resources/materials";
 
 const Drum = ({
   solid: { domain = [0, 1], func = (x) => x, resolution = 10 },
@@ -29,7 +29,7 @@ const Drum = ({
             position-x={i + step / 2}
             position-y={threeDee ? 0 : func(i) / 2}
           >
-            {darkPhongMaterial}
+            <DarkPhongMaterial />
             {threeDee ? (
               <cylinderGeometry args={[func(i), func(i), step, sides]} />
             ) : (

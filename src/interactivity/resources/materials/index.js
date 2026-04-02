@@ -1,3 +1,1 @@
-import { darkPhongMaterial, translucentNormalMaterial } from "./materials";
-
-export { darkPhongMaterial, translucentNormalMaterial };
+export { DarkPhongMaterial, TranslucentNormalMaterial } from "./materials";

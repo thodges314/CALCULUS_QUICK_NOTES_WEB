@@ -1,8 +1,8 @@
 import { useMemo } from "react";
 import { Vector2 } from "three";
 import {
-  darkPhongMaterial,
-  translucentNormalMaterial,
+  DarkPhongMaterial,
+  TranslucentNormalMaterial,
 } from "interactivity/resources/materials";
 
 const RotationObject = ({
@@ -23,7 +23,7 @@ const RotationObject = ({
 
   return (
     <mesh rotation-z={-Math.PI / 2} rotation-x={-Math.PI / 2} position={shift}>
-      {normalMaterial ? translucentNormalMaterial : darkPhongMaterial}
+      {normalMaterial ? <TranslucentNormalMaterial /> : <DarkPhongMaterial />}
       {points.length > 1 && <latheGeometry args={[points, sides]} />}
     </mesh>
   );

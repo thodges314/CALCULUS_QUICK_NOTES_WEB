@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { darkPhongMaterial } from "interactivity/resources/materials";
+import { DarkPhongMaterial, TranslucentNormalMaterial } from "interactivity/resources/materials";
 
 const FlatIntegral = ({
   solid: {
@@ -28,7 +28,7 @@ const FlatIntegral = ({
           rotation-z={-Math.PI / 2}
           key={Math.round(i * 100)}
         >
-          {darkPhongMaterial}
+          <DarkPhongMaterial />
           <planeGeometry args={[smlr, width]} />
         </mesh>
       );

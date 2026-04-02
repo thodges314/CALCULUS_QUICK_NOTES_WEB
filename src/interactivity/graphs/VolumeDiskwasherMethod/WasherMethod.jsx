@@ -18,7 +18,7 @@ import {
 const height = 400;
 const width = height * 1.61803398875;
 
-const twoDView = new Vector3(-0.5, -0.25, 0);
+const twoDView = [-0.5, -0.25, 0];
 const cameraPosition = [0.75, 0, 1.5];
 const axesLength = 1.5;
 const labelProportion = 1 / 3;

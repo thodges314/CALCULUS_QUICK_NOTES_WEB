@@ -6,7 +6,7 @@ import {
   synthSunsetPink,
   synthSunsetViolet,
 } from "interactivity/resources/constants/colors";
-import { darkPhongMaterial } from "interactivity/resources/materials";
+import { DarkPhongMaterial, TranslucentNormalMaterial } from "interactivity/resources/materials";
 
 const Washer = ({
   solid: {
@@ -82,13 +82,13 @@ const Washer = ({
       {threeDee && (
         <group position={shift}>
           <mesh rotation-y={-Math.PI / 2} position-x={domain[0]}>
-            {darkPhongMaterial}
+            <DarkPhongMaterial />
             <ringGeometry
               args={[littleFunc(domain[0]), bigFunc(domain[0]), sides]}
             />
           </mesh>
           <mesh rotation-y={-Math.PI / 2} position-x={value}>
-            {darkPhongMaterial}
+            <DarkPhongMaterial />
             <ringGeometry args={[littleFunc(value), bigFunc(value), sides]} />
           </mesh>
           <ThickStraightLine

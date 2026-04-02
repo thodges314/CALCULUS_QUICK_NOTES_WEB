@@ -1,7 +1,7 @@
 import { darkGrey, lightGrey } from "../constants/colors";
 import { DoubleSide } from "three";
 
-const darkPhongMaterial = (
+export const DarkPhongMaterial = () => (
   <meshPhongMaterial
     attach="material"
     color={darkGrey}
@@ -10,7 +10,7 @@ const darkPhongMaterial = (
   />
 );
 
-const translucentNormalMaterial = (
+export const TranslucentNormalMaterial = () => (
   <meshNormalMaterial
     attach="material"
     side={DoubleSide}
@@ -18,4 +18,4 @@ const translucentNormalMaterial = (
     opacity={0.5}
   />
 );
-export { darkPhongMaterial, translucentNormalMaterial };
+

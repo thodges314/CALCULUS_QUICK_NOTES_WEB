@@ -4,7 +4,7 @@ import RotationObject, {
 } from "interactivity/components/RotationObject";
 import { CourierPrime } from "interactivity/components/Text";
 import { synthSunsetPink } from "interactivity/resources/constants/colors";
-import { darkPhongMaterial } from "interactivity/resources/materials";
+import { DarkPhongMaterial, TranslucentNormalMaterial } from "interactivity/resources/materials";
 
 const Disc = ({
   solid: { domain = [0, 1], func = (x) => x, resolution = 20 },
@@ -45,11 +45,11 @@ const Disc = ({
         {threeDee && (
           <>
             <mesh rotation-y={-Math.PI / 2} position-x={domain[0]}>
-              {darkPhongMaterial}
+              <DarkPhongMaterial />
               <circleGeometry args={[func(domain[0]), sides]} />
             </mesh>
             <mesh rotation-y={Math.PI / 2} position-x={value}>
-              {darkPhongMaterial}
+              <DarkPhongMaterial />
               <circleGeometry args={[func(value), sides]} />
             </mesh>
             <ThickStraightLine
