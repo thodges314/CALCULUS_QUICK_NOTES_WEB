@@ -2,7 +2,7 @@
   "name": "Calculus QuickNotes",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://thodges314.github.io/CALCULUS_QUICK_NOTES_WEB/",
+  "homepage": "https://thodges314.github.io/CALCULUS_QUICK_NOTES_WEB",
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
