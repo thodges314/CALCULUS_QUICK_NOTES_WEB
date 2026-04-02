@@ -6,7 +6,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
-    "@fontsource/roboto": "^4.5.8",
+    "@fontsource/roboto": "^5.2.10",
     "@loadable/component": "^5.15.3",
     "@mui/icons-material": "^7.3.9",
     "@mui/material": "^7.3.9",
@@ -16,12 +16,12 @@
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.6.1",
-    "better-react-mathjax": "^2.0.2",
-    "big.js": "^6.2.1",
+    "better-react-mathjax": "^3.0.0",
+    "big.js": "^7.0.1",
     "d3": "^7.8.2",
     "d3-interpolate-path": "^2.3.0",
-    "leva": "^0.9.34",
-    "mathjax": "^3.2.2",
+    "leva": "^0.10.1",
+    "mathjax": "^4.1.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-router-dom": "^7.13.2",
@@ -30,8 +30,8 @@
     "styled-components": "^6.3.12",
     "three": "^0.183.2",
     "three.meshline": "^1.4.0",
-    "troika-three-text": "^0.47.1",
-    "web-vitals": "^2.1.4"
+    "troika-three-text": "^0.52.4",
+    "web-vitals": "^5.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -61,6 +61,6 @@
     "@types/big.js": "^6.1.6",
     "@types/d3": "^7.4.0",
     "@types/loadable__component": "^5.13.4",
-    "@types/three": "^0.149.0"
+    "@types/three": "^0.183.1"
   }
 }
