@@ -5,7 +5,7 @@ const LoadingPage = () => (
     <img
       height="432"
       width="768"
-      src="/img/newStyleLoadingLoop.gif"
+      src={`${process.env.PUBLIC_URL}/img/newStyleLoadingLoop.gif`}
       alt="Loading Animation"
     />
   </div>
