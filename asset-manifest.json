@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/CALCULUS_QUICK_NOTES_WEB/static/css/main.8b3d7a12.css",
-    "main.js": "/CALCULUS_QUICK_NOTES_WEB/static/js/main.116f62e9.js",
+    "main.js": "/CALCULUS_QUICK_NOTES_WEB/static/js/main.68d30cea.js",
     "static/js/151.2c9a87ab.chunk.js": "/CALCULUS_QUICK_NOTES_WEB/static/js/151.2c9a87ab.chunk.js",
     "static/js/3352.292563c6.chunk.js": "/CALCULUS_QUICK_NOTES_WEB/static/js/3352.292563c6.chunk.js",
     "static/js/8873.b0fb162d.chunk.js": "/CALCULUS_QUICK_NOTES_WEB/static/js/8873.b0fb162d.chunk.js",
@@ -146,12 +146,12 @@
     "static/js/8900.fb12b7a7.chunk.js": "/CALCULUS_QUICK_NOTES_WEB/static/js/8900.fb12b7a7.chunk.js",
     "static/js/4443.b46961c6.chunk.js": "/CALCULUS_QUICK_NOTES_WEB/static/js/4443.b46961c6.chunk.js",
     "static/js/7204.09e8eb4a.chunk.js": "/CALCULUS_QUICK_NOTES_WEB/static/js/7204.09e8eb4a.chunk.js",
-    "static/js/7617.40dfeccb.chunk.js": "/CALCULUS_QUICK_NOTES_WEB/static/js/7617.40dfeccb.chunk.js",
+    "static/js/7617.67d4875f.chunk.js": "/CALCULUS_QUICK_NOTES_WEB/static/js/7617.67d4875f.chunk.js",
     "static/js/1901.c23bbf56.chunk.js": "/CALCULUS_QUICK_NOTES_WEB/static/js/1901.c23bbf56.chunk.js",
     "static/js/8651.051785ff.chunk.js": "/CALCULUS_QUICK_NOTES_WEB/static/js/8651.051785ff.chunk.js",
     "index.html": "/CALCULUS_QUICK_NOTES_WEB/index.html",
     "main.8b3d7a12.css.map": "/CALCULUS_QUICK_NOTES_WEB/static/css/main.8b3d7a12.css.map",
-    "main.116f62e9.js.map": "/CALCULUS_QUICK_NOTES_WEB/static/js/main.116f62e9.js.map",
+    "main.68d30cea.js.map": "/CALCULUS_QUICK_NOTES_WEB/static/js/main.68d30cea.js.map",
     "151.2c9a87ab.chunk.js.map": "/CALCULUS_QUICK_NOTES_WEB/static/js/151.2c9a87ab.chunk.js.map",
     "3352.292563c6.chunk.js.map": "/CALCULUS_QUICK_NOTES_WEB/static/js/3352.292563c6.chunk.js.map",
     "8873.b0fb162d.chunk.js.map": "/CALCULUS_QUICK_NOTES_WEB/static/js/8873.b0fb162d.chunk.js.map",
@@ -296,12 +296,12 @@
     "8900.fb12b7a7.chunk.js.map": "/CALCULUS_QUICK_NOTES_WEB/static/js/8900.fb12b7a7.chunk.js.map",
     "4443.b46961c6.chunk.js.map": "/CALCULUS_QUICK_NOTES_WEB/static/js/4443.b46961c6.chunk.js.map",
     "7204.09e8eb4a.chunk.js.map": "/CALCULUS_QUICK_NOTES_WEB/static/js/7204.09e8eb4a.chunk.js.map",
-    "7617.40dfeccb.chunk.js.map": "/CALCULUS_QUICK_NOTES_WEB/static/js/7617.40dfeccb.chunk.js.map",
+    "7617.67d4875f.chunk.js.map": "/CALCULUS_QUICK_NOTES_WEB/static/js/7617.67d4875f.chunk.js.map",
     "1901.c23bbf56.chunk.js.map": "/CALCULUS_QUICK_NOTES_WEB/static/js/1901.c23bbf56.chunk.js.map",
     "8651.051785ff.chunk.js.map": "/CALCULUS_QUICK_NOTES_WEB/static/js/8651.051785ff.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8b3d7a12.css",
-    "static/js/main.116f62e9.js"
+    "static/js/main.68d30cea.js"
   ]
 }
