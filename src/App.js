@@ -37,9 +37,6 @@ const config = {
 };
 
 function App() {
-  const navigate = useNavigate();
-  window.addEventListener("popstate", (_event) => navigate(0));
-
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const pages = {};

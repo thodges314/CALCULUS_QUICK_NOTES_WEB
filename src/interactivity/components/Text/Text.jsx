@@ -10,15 +10,19 @@ import robotoFile from "interactivity/resources/fonts/Roboto_Regular.json";
 
 extend({ TextGeometry });
 
+const parsedCourierPrime = new FontLoader().parse(courierPrimeFile);
+const parsedCourierPrimeBold = new FontLoader().parse(courierPrimeBoldFile);
+const parsedInconsolata = new FontLoader().parse(inconsolataFile);
+const parsedRoboto = new FontLoader().parse(robotoFile);
+
 const Inconsolata = ({
   text = "",
   size = 0.5,
   position = [0, 0, 0],
   color = medGrey,
 }) => {
-  const inconsolata = new FontLoader().parse(inconsolataFile);
   const textOptions = {
-    font: inconsolata,
+    font: parsedInconsolata,
     size: size,
     depth: 0.01,
   };
@@ -37,9 +41,8 @@ const Roboto = ({
   position = [0, 0, 0],
   color = medGrey,
 }) => {
-  const roboto = new FontLoader().parse(robotoFile);
   const textOptions = {
-    font: roboto,
+    font: parsedRoboto,
     size: size,
     depth: 0.01,
   };
@@ -59,11 +62,8 @@ const CourierPrime = ({
   color = medGrey,
   bold = false,
 }) => {
-  const courierPrime = new FontLoader().parse(
-    bold ? courierPrimeBoldFile : courierPrimeFile
-  );
   const textOptions = {
-    font: courierPrime,
+    font: bold ? parsedCourierPrimeBold : parsedCourierPrime,
     size: size,
     depth: 0.01,
   };

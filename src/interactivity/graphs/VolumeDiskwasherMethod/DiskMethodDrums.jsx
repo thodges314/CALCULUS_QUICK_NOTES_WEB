@@ -47,7 +47,7 @@ const DiskMethodDrums = () => {
       }}
     >
       <CanvasCard height={height} width={width}>
-        <Canvas camera={{ position: cameraPosition }}>
+        <Canvas dpr={[1, 2]} camera={{ position: cameraPosition }}>
           <ambientLight color={0x91b2cb} intensity={2} />
           <directionalLight position={[1123, 56, 79]} intensity={0.5} />
           <Environment
