@@ -13,7 +13,7 @@ const ThickStraightLine = ({
   labelRight = true,
   labelProportion = 1,
   color,
-  shift = null,
+  shift = [0, 0, 0],
 }) => {
   const points = [
     new Vector3(start[0], start[1], start[2]),

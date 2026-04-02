@@ -7,7 +7,7 @@ const ThickCurveyLine = ({
   rotationY = 0,
   rotationZ = 0,
   color,
-  shift = null,
+  shift = [0, 0, 0],
 }) => {
   const threepoints = points.map((point) => new Vector3(point.x, point.y, 0));
   const curve = new CatmullRomCurve3(threepoints);

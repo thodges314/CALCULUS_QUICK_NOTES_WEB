@@ -1,7 +1,7 @@
 import { Inconsolata } from "interactivity/components/Text";
 import { medGrey } from "interactivity/resources/constants/colors";
 
-const Axes = ({ length = 6, labelProportion = 1, shift = null }) => (
+const Axes = ({ length = 6, labelProportion = 1, shift = [0, 0, 0] }) => (
   <>
     <group position={shift}>
       <Inconsolata

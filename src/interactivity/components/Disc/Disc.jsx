@@ -15,7 +15,7 @@ const Disc = ({
   displayTopLabel = true,
   labelColor = synthSunsetPink,
   value = domain[0],
-  shift = null,
+  shift = [0, 0, 0],
 }) => {
   return (
     <>

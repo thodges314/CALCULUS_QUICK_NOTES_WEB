@@ -9,7 +9,7 @@ const RotationObject = ({
   solid: { domain = [0.1, 1], func = (x) => x, resolution = 10 },
   sides = 90,
   normalMaterial = true,
-  shift = null,
+  shift = [0, 0, 0],
 }) => {
   const points = useMemo(() => {
     const pts = [];

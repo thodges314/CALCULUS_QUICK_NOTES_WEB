@@ -4,7 +4,7 @@ import { ThickCurveyLine } from "interactivity/components/Lines";
 
 const RotationObjectLine = ({
   solid: { domain = [0.1, 1], func = (x) => x, resolution = 10 },
-  shift = null,
+  shift = [0, 0, 0],
 }) => {
   const points = useMemo(() => {
     const pts = [];

@@ -15,7 +15,7 @@ const Drum = ({
   functionName = "f(x)",
   displayTopLabel = true,
   value = domain[0],
-  shift = null,
+  shift = [0, 0, 0],
 }) => {
   const step = useMemo(() => 1 / resolution, [resolution]);
 

@@ -9,7 +9,7 @@ const FlatIntegral = ({
     resolution = 10,
   },
   rightBound = domain[1],
-  shift = null,
+  shift = [0, 0, 0],
   light = false,
 }) => {
   const dx = useMemo(() => {
