@@ -20,7 +20,7 @@ const Inconsolata = ({
   const textOptions = {
     font: inconsolata,
     size: size,
-    height: 0.01,
+    depth: 0.01,
   };
 
   return (
@@ -41,7 +41,7 @@ const Roboto = ({
   const textOptions = {
     font: roboto,
     size: size,
-    height: 0.01,
+    depth: 0.01,
   };
 
   return (
@@ -65,7 +65,7 @@ const CourierPrime = ({
   const textOptions = {
     font: courierPrime,
     size: size,
-    height: 0.01,
+    depth: 0.01,
   };
 
   return (
