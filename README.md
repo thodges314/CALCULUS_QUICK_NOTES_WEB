@@ -67,6 +67,8 @@ Pages are lazy-loaded using React's built-in `React.lazy()` + `Suspense`. Each p
 
 A `<LoadingPage />` fallback (animated) is shown while a page's chunk is loading.
 
+> **History:** The project originally used `@loadable/component` for code splitting, which was the standard solution before React had built-in lazy loading. `@loadable/component`'s main advantage over `React.lazy` is SSR support — but since this app is statically hosted (no SSR), `React.lazy` is the simpler, dependency-free equivalent. The migration also fixed a navigation caching bug where sharing a single dynamic loadable component type across all pages caused React to reuse the old instance instead of mounting a fresh one.
+
 Pages are registered in `src/pages/pageDirectory.json`. Adding a new page requires:
 1. Creating `src/pages/[SectionName]/[PageName]/[PageName].jsx`
 2. Adding the entry to `pageDirectory.json`
@@ -100,4 +102,3 @@ Uses React Router v6 with `BrowserRouter`. Routes are built at module level from
 | `better-react-mathjax` | MathJax v2 integration for math rendering |
 | `big.js` | Arbitrary precision arithmetic for graph calculations |
 | `troika-three-text` | 3D text rendering in Three.js scenes |
-| `@loadable/component` | (Legacy — kept as installed dep, no longer used in routing) |
