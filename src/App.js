@@ -1,8 +1,7 @@
 import "./App.css";
-import { useState } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { useState, lazy, Suspense } from "react";
+import { Routes, Route } from "react-router-dom";
 import { CssBaseline, GlobalStyles } from "@mui/material";
-import loadable from "@loadable/component";
 import { MathJaxContext } from "better-react-mathjax";
 import BackgroundPaper from "components/interface/BackgroundPaper";
 import LoadingPage from "components/LoadingPage";
@@ -11,12 +10,50 @@ import { MenuDrawer, TopMenu } from "components";
 import items from "pages/pageDirectory";
 import { toPascalCase } from "utils/utils";
 
-const LoadablePage = loadable(
-  ({ itm1, itm2 }) =>
-    import(`pages/${toPascalCase(itm1.name)}/${toPascalCase(itm2)}`),
-  {
-    fallback: <LoadingPage />,
-  }
+// Each page gets its own unique lazy() component so React treats them as
+// distinct types. When navigating between pages, React fully unmounts the
+// old page and mounts the new one — no stale content from the previous page.
+const lazyPages = {};
+items.forEach((itm) => {
+  itm.items.forEach((itm2) => {
+    const key = `${toPascalCase(itm.name)}_${toPascalCase(itm2)}`;
+    lazyPages[key] = lazy(() =>
+      import(`pages/${toPascalCase(itm.name)}/${toPascalCase(itm2)}`)
+    );
+  });
+});
+
+const HomePageLazy = lazy(() => import("pages/Home"));
+
+// Build route list once at module level
+const routes = [];
+items.forEach((itm, idx) => {
+  itm.items.forEach((itm2, idx2) => {
+    const key = `${toPascalCase(itm.name)}_${toPascalCase(itm2)}`;
+    const LazyComp = lazyPages[key];
+    routes.push(
+      <Route
+        key={100 * idx + idx2}
+        path={`/${toPascalCase(itm.name)}/${toPascalCase(itm2)}`}
+        element={
+          <Suspense fallback={<LoadingPage />}>
+            <LazyComp />
+          </Suspense>
+        }
+      />
+    );
+  });
+});
+routes.push(
+  <Route
+    key={9999999999}
+    path="/"
+    element={
+      <Suspense fallback={<LoadingPage />}>
+        <HomePageLazy />
+      </Suspense>
+    }
+  />
 );
 
 const config = {
@@ -38,34 +75,6 @@ const config = {
 
 function App() {
   const [drawerOpen, setDrawerOpen] = useState(false);
-
-  const pages = {};
-  items.forEach((itm) => {
-    itm.items.forEach(async (itm2) => {
-      pages[`${toPascalCase(itm.name)}_${toPascalCase(itm2)}`] = (
-        <LoadablePage itm1={itm} itm2={itm2} />
-      );
-    });
-  });
-
-  const HomePage = loadable(() => import(`pages/Home`), {
-    fallback: <LoadingPage />,
-  });
-
-  const routes = [];
-  items.forEach((itm, idx) => {
-    itm.items.forEach((itm2, idx2) => {
-      routes.push(
-        <Route
-          key={100 * idx + idx2}
-          path={`/${toPascalCase(itm.name)}/${toPascalCase(itm2)}`}
-          element={pages[`${toPascalCase(itm.name)}_${toPascalCase(itm2)}`]}
-        />
-      );
-    });
-  });
-
-  routes.push(<Route key={9999999999} path={"/"} element={<HomePage />} />);
 
   return (
     <MathJaxContext

@@ -1,81 +1,91 @@
-# Getting Started with Create React App
+# Calculus QuickNotes Web
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React web app port of the [Calculus Quick Notes Android app](https://play.google.com/store/apps/details?id=com.tutorillinois.android.calculusquicknotes), adding interactive D3 and Three.js visualizations to the original static content.
 
-## Available Scripts
+Live at: **[calculusquicknotes.com](https://calculusquicknotes.com)**
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Development
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Start the dev server
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+npm start
+```
 
-### `npm test`
+Opens at [http://localhost:3000](http://localhost:3000). The page hot-reloads on file changes.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+> **Tip:** If you see "Something is already running on port 3000", an old dev server is still running. Kill it first:
+> ```bash
+> lsof -ti :3000 | xargs kill -9
+> npm start
+> ```
+> Running two servers simultaneously means your changes won't appear — you'll be testing against the old one.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Deploying to GitHub Pages
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Deployment is fully automatic.** Just push to `master`:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+git add .
+git commit -m "your message"
+git push
+```
 
-### `npm run eject`
+The GitHub Actions workflow (`.github/workflows/deploy.yml`) will:
+1. Install dependencies
+2. Build the production bundle (`npm run build`)
+3. Copy `index.html` → `404.html` (required for client-side routing on GitHub Pages)
+4. Deploy the `build/` folder to the `gh-pages` branch
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+You can monitor the deployment under the **Actions** tab on GitHub. The live site updates within ~1 minute of the workflow completing.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+> **Note:** You do **not** need to run `npm run build` or `npm run deploy` manually. Those commands exist but the GitHub Actions workflow handles everything on push.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Architecture Notes
 
 ### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Pages are lazy-loaded using React's built-in `React.lazy()` + `Suspense`. Each page gets its own unique `lazy()` component so React fully unmounts the old page and mounts the new one on navigation — preventing stale content from ever being shown.
 
-### Analyzing the Bundle Size
+A `<LoadingPage />` fallback (animated) is shown while a page's chunk is loading.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Pages are registered in `src/pages/pageDirectory.json`. Adding a new page requires:
+1. Creating `src/pages/[SectionName]/[PageName]/[PageName].jsx`
+2. Adding the entry to `pageDirectory.json`
 
-### Making a Progressive Web App
+### Routing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Uses React Router v6 with `BrowserRouter`. Routes are built at module level from `pageDirectory.json` and matched to their lazy-loaded page components. The `basename` is set to `process.env.PUBLIC_URL` to support the custom domain.
 
-### Advanced Configuration
+### Interactive Elements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- **D3.js** — used for 2D interactive graphs (charts, series visualizations, etc.)
+- **Three.js / React Three Fiber** — used for 3D visualizations (volume solids of revolution, etc.)
+- **MathJax v2** — renders all mathematical notation via `better-react-mathjax`
 
-### Deployment
+### Styling
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- **MUI (Material UI v7)** with Styled Components engine
+- Custom color palette in `src/interactivity/resources/constants/`
+- Global background color set via MUI `GlobalStyles`
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Key Dependencies
 
-# disc-method
-
-using:
-BetterMathJax https://www.npmjs.com/package/better-react-mathjax
-Material UI w/ Styled Components https://mui.com/material-ui/getting-started/overview/
-React Three Fiber https://docs.pmnd.rs/react-three-fiber/getting-started/introduction
-Three Js https://threejs.org
-Later pages will also include D3.js
-Loadable Components https://loadable-components.com
-Big.js http://mikemcl.github.io/big.js/#div
+| Package | Purpose |
+|---|---|
+| `react-router-dom` | Client-side routing |
+| `@mui/material` | UI component library |
+| `d3` | 2D interactive data visualizations |
+| `three` + `@react-three/fiber` + `@react-three/drei` | 3D visualizations |
+| `better-react-mathjax` | MathJax v2 integration for math rendering |
+| `big.js` | Arbitrary precision arithmetic for graph calculations |
+| `troika-three-text` | 3D text rendering in Three.js scenes |
+| `@loadable/component` | (Legacy — kept as installed dep, no longer used in routing) |
