@@ -4,6 +4,18 @@ A React web app port of the [Calculus Quick Notes Android app](https://play.goog
 
 Live at: **[calculusquicknotes.com](https://calculusquicknotes.com)**
 
+## Project History
+
+This app was originally hosted on **iPage** (now Network Solutions). It has since been migrated to **GitHub Pages**, which offers tighter integration with the source repository and automatic deployment via GitHub Actions on every push to `master`.
+
+### GitHub Pages Compatibility Notes
+
+GitHub Pages serves only static files and has no server-side routing. The following are already in place to handle this correctly:
+
+- **`404.html` trick** — The deploy workflow copies `build/index.html` to `build/404.html`. When a user navigates directly to a deep URL (e.g. `/PreCalculus/ShiftingGraphsWithHAndK`), GitHub Pages serves `404.html`, which loads the React app and lets React Router handle the route client-side. Without this, direct links and page refreshes would show a real 404.
+- **Custom domain** — `package.json` has `"homepage": "https://calculusquicknotes.com"` and a `CNAME` file is committed to the repo. CRA uses the `homepage` value to correctly set asset paths at build time.
+- **Code splitting** — Lazy-loaded page chunks are just static `.js` files served from GitHub Pages' CDN. `React.lazy()` requests them on demand exactly like any other static asset.
+
 ---
 
 ## Development
