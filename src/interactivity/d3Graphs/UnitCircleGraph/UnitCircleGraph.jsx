@@ -1,9 +1,9 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import * as d3 from "d3";
 import CanvasCard from "components/interface/CanvasCard";
 import CustomSlider from "components/interface/CustomSlider";
 import ControlsCard, { ControlsRow } from "components/interface/ControlsCard";
-import DisplayEquation from "components/interface/DisplayEquation";
+import DisplayEquation, { InlineEquation } from "components/interface/DisplayEquation";
 import { FormGroup } from "@mui/material";
 import { hexToRgba } from "utils/utils";
 import {
@@ -43,7 +43,49 @@ const STANDARD_ANGLES = [
   { deg: 360, radLabel: "2π",     radVal: 2 * Math.PI,      cos:  1,       sin:  0,       cosLabel: "1",       sinLabel: "0",     cosLaTeX: "1",                       sinLaTeX: "0" },
 ];
 
-// ─── Canvas / Scale Constants ───────────────────────────────────────────────
+// Simplified tan LaTeX for the info panel (null = undefined)
+const TAN_LATEX = [
+  "0",                      // 0°
+  "\\frac{\\sqrt{3}}{3}",   // 30°
+  "1",                      // 45°
+  "\\sqrt{3}",              // 60°
+  null,                     // 90°
+  "-\\sqrt{3}",             // 120°
+  "-1",                     // 135°
+  "-\\frac{\\sqrt{3}}{3}",  // 150°
+  "0",                      // 180°
+  "\\frac{\\sqrt{3}}{3}",   // 210°
+  "1",                      // 225°
+  "\\sqrt{3}",              // 240°
+  null,                     // 270°
+  "-\\sqrt{3}",             // 300°
+  "-1",                     // 315°
+  "-\\frac{\\sqrt{3}}{3}",  // 330°
+  "0",                      // 360°
+];
+
+// Radian LaTeX for info panel (matches STANDARD_ANGLES order)
+const RAD_LATEX = [
+  "0",                     // 0°
+  "\\frac{\\pi}{6}",       // 30°
+  "\\frac{\\pi}{4}",       // 45°
+  "\\frac{\\pi}{3}",       // 60°
+  "\\frac{\\pi}{2}",       // 90°
+  "\\frac{2\\pi}{3}",      // 120°
+  "\\frac{3\\pi}{4}",      // 135°
+  "\\frac{5\\pi}{6}",      // 150°
+  "\\pi",                  // 180°
+  "\\frac{7\\pi}{6}",      // 210°
+  "\\frac{5\\pi}{4}",      // 225°
+  "\\frac{4\\pi}{3}",      // 240°
+  "\\frac{3\\pi}{2}",      // 270°
+  "\\frac{5\\pi}{3}",      // 300°
+  "\\frac{7\\pi}{4}",      // 315°
+  "\\frac{11\\pi}{6}",     // 330°
+  "2\\pi",                 // 360°
+];
+
+// ─── Canvas / Scale Constants ───────────────────────────────────────────────────────────
 
 const SIZE = 540;
 const CENTER = SIZE / 2;            // 270
@@ -86,8 +128,8 @@ const COS_COLOR      = hexToRgba(synthSunsetMagenta, 1);
 const SIN_COLOR      = hexToRgba(synthSunsetYellow, 1);
 const RAD_COLOR      = hexToRgba(synthSunsetOrange, 1);
 const DOT_COLOR      = hexToRgba(synthSunsetPink, 1);
-const CIRC_COLOR     = hexToRgba(synthCyberLightBlue, 1); // eslint-disable-line no-unused-vars
-const PALE_COLOR     = hexToRgba(synthCyberPaleBlue, 1);  // eslint-disable-line no-unused-vars
+const CIRC_COLOR     = hexToRgba(synthCyberLightBlue, 1);
+const PALE_COLOR     = hexToRgba(synthCyberPaleBlue, 1);
 const HAIRLINE_COLOR = hexToRgba(themePurple, 1);
 
 // ─── Label positioning helpers ──────────────────────────────────────────────
@@ -159,12 +201,8 @@ const UnitCircleGraph = () => {
   // Array ref for coordinate label overlay divs
   const coordLabelRefs = useRef([]);
 
-  // DOM display refs (info panel)
-  const thetaRef = useRef(null);
-  const coordRef = useRef(null);
-  const cosRef   = useRef(null);
-  const sinRef   = useRef(null);
-  const tanRef   = useRef(null);
+  // Current angle index — drives info panel via React state
+  const [angleIdx, setAngleIdx] = useState(0);
 
   useEffect(() => {
     // Guard against double-invoke in React strict mode
@@ -179,18 +217,24 @@ const UnitCircleGraph = () => {
     svg.append("line")
       .attr("x1", 0).attr("y1", CENTER)
       .attr("x2", SIZE).attr("y2", CENTER)
-      .classed("uc-axis", true);
+      .attr("stroke", PALE_COLOR)
+      .attr("stroke-width", "1px")
+      .attr("opacity", "0.5");
 
     svg.append("line")
       .attr("x1", CENTER).attr("y1", 0)
       .attr("x2", CENTER).attr("y2", SIZE)
-      .classed("uc-axis", true);
+      .attr("stroke", PALE_COLOR)
+      .attr("stroke-width", "1px")
+      .attr("opacity", "0.5");
 
     // ── Unit circle ───────────────────────────────────────────────────────
     svg.append("circle")
       .attr("cx", CENTER).attr("cy", CENTER)
       .attr("r", CIRCLE_R_PX)
-      .classed("uc-circle", true);
+      .attr("stroke", CIRC_COLOR)
+      .attr("stroke-width", "2px")
+      .attr("fill", "none");
 
     // ── Hairlines from origin to each standard angle point ────────────────
     STANDARD_ANGLES.forEach((angle) => {
@@ -213,7 +257,9 @@ const UnitCircleGraph = () => {
         .attr("x", toX(x) + dx)
         .attr("y", toY(y) + dy)
         .attr("text-anchor", a)
-        .classed("uc-axis-label", true)
+        .attr("fill", PALE_COLOR)
+        .attr("fill-opacity", "0.75")
+        .attr("font-size", "11")
         .text(t);
     });
 
@@ -228,20 +274,24 @@ const UnitCircleGraph = () => {
       // Static dot
       svg.append("circle")
         .attr("cx", px).attr("cy", py).attr("r", 3.5)
-        .classed("uc-dot", true);
+        .attr("fill", PALE_COLOR)
+        .attr("fill-opacity", "0.75");
 
       // Degree label (SVG text)
       svg.append("text")
         .attr("x", lx).attr("y", ly - 6)
         .attr("text-anchor", anchor)
-        .classed("uc-deg-label", true)
+        .attr("fill", PALE_COLOR)
+        .attr("font-size", "14")
         .text(`${angle.deg}°`);
 
       // Radian label (SVG text)
       svg.append("text")
         .attr("x", lx).attr("y", ly + 10)
         .attr("text-anchor", anchor)
-        .classed("uc-rad-label", true)
+        .attr("fill", PALE_COLOR)
+        .attr("font-size", "14")
+        .attr("font-style", "italic")
         .text(angle.radLabel);
     });
 
@@ -275,19 +325,22 @@ const UnitCircleGraph = () => {
       .attr("x1", CENTER).attr("y1", CENTER)
       .attr("x2", toX(a0.cos)).attr("y2", CENTER)
       .attr("stroke", COS_COLOR)
-      .classed("uc-thick-line", true);
+      .attr("stroke-width", "2.5")
+      .attr("fill", "none");
 
     sinLineRef.current = svg.append("line")
       .attr("x1", toX(a0.cos)).attr("y1", CENTER)
       .attr("x2", toX(a0.cos)).attr("y2", toY(a0.sin))
       .attr("stroke", SIN_COLOR)
-      .classed("uc-thick-line", true);
+      .attr("stroke-width", "2.5")
+      .attr("fill", "none");
 
     radialRef.current = svg.append("line")
       .attr("x1", CENTER).attr("y1", CENTER)
       .attr("x2", toX(a0.cos)).attr("y2", toY(a0.sin))
       .attr("stroke", RAD_COLOR)
-      .classed("uc-thick-line", true);
+      .attr("stroke-width", "2.5")
+      .attr("fill", "none");
 
     activeDotRef.current = svg.append("circle")
       .attr("cx", toX(a0.cos)).attr("cy", toY(a0.sin))
@@ -323,47 +376,50 @@ const UnitCircleGraph = () => {
     arcPathRef.current
       .attr("d", getArcPath(angle.deg));
 
-    // Update info panel
-    if (thetaRef.current)
-      thetaRef.current.textContent = `${angle.deg}° = ${angle.radLabel}`;
-    if (coordRef.current)
-      coordRef.current.textContent = `(${angle.cosLabel}, ${angle.sinLabel})`;
-    if (cosRef.current)
-      cosRef.current.textContent = angle.cosLabel;
-    if (sinRef.current)
-      sinRef.current.textContent = angle.sinLabel;
-    if (tanRef.current) {
-      if (Math.abs(angle.cos) < 1e-9) {
-        tanRef.current.textContent = "undefined";
-      } else {
-        tanRef.current.textContent = `${angle.sinLabel} / ${angle.cosLabel}`;
-      }
-    }
   };
 
+
   // ── Render ───────────────────────────────────────────────────────────────
+
+  const angle = STANDARD_ANGLES[angleIdx];
 
   return (
     <>
       {/* Info panel */}
-      <div style={{ width: SIZE, marginLeft: "auto", marginRight: "auto" }}>
-        <div className="uc-info-row">
-          <span className="uc-info-label">θ =&nbsp;</span>
-          <span ref={thetaRef} className="uc-info-value">0° = 0</span>
-          <span className="uc-info-sep">|</span>
-          <span className="uc-info-label">Point =&nbsp;</span>
-          <span ref={coordRef} className="uc-info-value">(1, 0)</span>
-        </div>
-        <div className="uc-info-row" style={{ marginBottom: 6 }}>
-          <span className="uc-info-label" style={{ color: COS_COLOR }}>cos(θ) =&nbsp;</span>
-          <span ref={cosRef} className="uc-info-value" style={{ color: COS_COLOR }}>1</span>
-          <span className="uc-info-sep">|</span>
-          <span className="uc-info-label" style={{ color: SIN_COLOR }}>sin(θ) =&nbsp;</span>
-          <span ref={sinRef} className="uc-info-value" style={{ color: SIN_COLOR }}>0</span>
-          <span className="uc-info-sep">|</span>
-          <span className="uc-info-label">tan(θ) =&nbsp;</span>
-          <span ref={tanRef} className="uc-info-value">0 / 1</span>
-        </div>
+      <div style={{ width: SIZE + 60, marginLeft: "auto", marginRight: "auto" }}>
+        <ControlsCard>
+          <div style={{ height: 88, display: "flex", flexDirection: "column", justifyContent: "center" }}>
+            <div className="uc-info-row">
+              <span className="uc-info-label">θ =&nbsp;</span>
+              <span className="uc-info-value">{angle.deg}° or {angle.radLabel}</span>
+              <span className="uc-info-sep">|</span>
+              <span className="uc-info-label">Point =&nbsp;</span>
+              <span className="uc-info-value">
+                (<InlineEquation>{`$\\color{${COS_COLOR}}{${angle.cosLaTeX}}$`}</InlineEquation>,{" "}
+                <InlineEquation>{`$\\color{${SIN_COLOR}}{${angle.sinLaTeX}}$`}</InlineEquation>)
+              </span>
+            </div>
+            <div className="uc-info-row">
+              <span className="uc-info-label" style={{ color: COS_COLOR }}>cos(θ) =&nbsp;</span>
+              <span className="uc-info-value" style={{ color: COS_COLOR }}>
+                <InlineEquation>{`$${angle.cosLaTeX}$`}</InlineEquation>
+              </span>
+              <span className="uc-info-sep">|</span>
+              <span className="uc-info-label" style={{ color: SIN_COLOR }}>sin(θ) =&nbsp;</span>
+              <span className="uc-info-value" style={{ color: SIN_COLOR }}>
+                <InlineEquation>{`$${angle.sinLaTeX}$`}</InlineEquation>
+              </span>
+              <span className="uc-info-sep">|</span>
+              <span className="uc-info-label">tan(θ) =&nbsp;</span>
+              <span className="uc-info-value">
+                {TAN_LATEX[angleIdx] === null
+                  ? "undefined"
+                  : <InlineEquation>{`$${TAN_LATEX[angleIdx]}$`}</InlineEquation>
+                }
+              </span>
+            </div>
+          </div>
+        </ControlsCard>
       </div>
 
       {/* Canvas — position:relative wrapper lets overlay divs be positioned
@@ -404,7 +460,7 @@ const UnitCircleGraph = () => {
               <div>θ</div>
               <div>
                 <CustomSlider
-                  onChange={(_evt, newValue) => updateAngle(newValue)}
+                  onChange={(_evt, newValue) => { setAngleIdx(newValue); updateAngle(newValue); }}
                   min={0}
                   max={16}
                   step={1}

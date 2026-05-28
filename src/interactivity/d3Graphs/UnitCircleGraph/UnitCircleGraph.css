@@ -1,68 +1,32 @@
-.uc-axis {
-  stroke: #93c8c4;
-  stroke-width: 1px;
-  opacity: 0.5;
-}
-
-.uc-circle {
-  stroke: #0b4abd;
-  stroke-width: 2px;
-  fill: none;
-}
-
-.uc-dot {
-  fill: #93c8c4;
-  opacity: 0.75;
-}
+/* SVG element colors are set via D3 .attr() using JS color constants.
+   Only structural / layout rules belong here. */
 
 .uc-thick-line {
   stroke-width: 2.5px;
   fill: none;
 }
 
-.uc-deg-label {
-  font-size: 14px;
-  fill: #93c8c4;
-  /* fill-opacity: 0.9; */
-}
-
-.uc-rad-label {
-  font-size: 14px;
-  fill: #93c8c4;
-  /* fill-opacity: 0.7; */
-  font-style: italic;
-}
-
-.uc-axis-label {
-  font-size: 11px;
-  fill: #93c8c4;
-  fill-opacity: 0.75;
-}
+/* ── Info-panel layout (colors via inline style + JS vars in JSX) ── */
 
 .uc-info-row {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: center;
-  font-family: "Courier New", Courier, monospace;
   font-size: 14px;
   padding: 4px 0;
-  color: #93c8c4;
   flex-wrap: wrap;
   gap: 4px;
 }
 
 .uc-info-label {
-  color: #93c8c4;
   opacity: 0.9;
 }
 
 .uc-info-value {
-  color: #ffffff;
   font-weight: bold;
 }
 
 .uc-info-sep {
-  color: #93c8c4;
   opacity: 0.5;
   margin: 0 16px;
 }
