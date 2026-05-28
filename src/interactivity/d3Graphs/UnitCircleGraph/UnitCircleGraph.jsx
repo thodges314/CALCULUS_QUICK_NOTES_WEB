@@ -56,6 +56,30 @@ const LABEL_R = 1.30;               // label radius in math units
 const toX = (mx) => CENTER + mx * SCALE;
 const toY = (my) => CENTER - my * SCALE;
 
+// ─── Sweep-arc helpers ──────────────────────────────────────────────────────
+
+const ARC_R = 50; // px — arc radius, shows full angle from positive x-axis
+
+const getArcPath = (angleDeg) => {
+  const startX = CENTER + ARC_R;
+  const startY = CENTER;
+  if (angleDeg === 0) return `M ${startX} ${startY}`;  // degenerate — no arc
+  if (angleDeg === 360) {
+    // SVG can't draw a full circle with one arc; use two 180° arcs
+    return [
+      `M ${startX} ${startY}`,
+      `A ${ARC_R} ${ARC_R} 0 0 0 ${CENTER - ARC_R} ${CENTER}`,
+      `A ${ARC_R} ${ARC_R} 0 0 0 ${startX} ${startY}`,
+    ].join(" ");
+  }
+  const theta = (angleDeg * Math.PI) / 180;
+  const endX = CENTER + ARC_R * Math.cos(theta);
+  const endY = CENTER - ARC_R * Math.sin(theta); // SVG y is inverted
+  const largeArc = angleDeg > 180 ? 1 : 0;
+  // sweep-flag 0 = CCW in SVG coords = CCW in math coords (y-flip cancels)
+  return `M ${startX} ${startY} A ${ARC_R} ${ARC_R} 0 ${largeArc} 0 ${endX} ${endY}`;
+};
+
 // ─── Color Constants ────────────────────────────────────────────────────────
 
 const COS_COLOR      = hexToRgba(synthSunsetMagenta, 1);
@@ -130,6 +154,7 @@ const UnitCircleGraph = () => {
   const cosLineRef   = useRef(null);
   const sinLineRef   = useRef(null);
   const activeDotRef = useRef(null);
+  const arcPathRef   = useRef(null);
 
   // Array ref for coordinate label overlay divs
   const coordLabelRefs = useRef([]);
@@ -238,6 +263,14 @@ const UnitCircleGraph = () => {
     // ── Active angle elements (drawn on top) ──────────────────────────────
     const a0 = STANDARD_ANGLES[0];
 
+    // Sweep arc — drawn before the cos/sin/radial lines so it sits behind them
+    arcPathRef.current = svg.append("path")
+      .attr("d", getArcPath(0))
+      .attr("fill", "none")
+      .attr("stroke", "white")
+      .attr("stroke-width", "1.5")
+      .attr("stroke-opacity", "0.6");
+
     cosLineRef.current = svg.append("line")
       .attr("x1", CENTER).attr("y1", CENTER)
       .attr("x2", toX(a0.cos)).attr("y2", CENTER)
@@ -286,6 +319,9 @@ const UnitCircleGraph = () => {
     activeDotRef.current
       .transition().duration(0)
       .attr("cx", px).attr("cy", py);
+
+    arcPathRef.current
+      .attr("d", getArcPath(angle.deg));
 
     // Update info panel
     if (thetaRef.current)
