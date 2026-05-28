@@ -79,7 +79,7 @@ const Component = () => (
         discrete vertical strips. Rotating each strip around the y-axis creates a
         hollow, thick-walled cylindrical shell. The sum of the volumes of these
         concentric shells gives a Riemann sum approximation of the total solid
-        volume. Slide the slider below to see the approximation built shell by shell!
+        volume.
       </CustomTypography>
 
       <ShellMethodShells />
@@ -96,11 +96,6 @@ const Component = () => (
       <CustomTypography>
         Consider what would happen if you chose some {`$x$`} value, and used
         this to slice an infinitely thin cylindrical shell out of this solid.
-      </CustomTypography>
-      <CustomTypography>
-        Play with the 3D model below. You can click Rotate Graph to see
-        the solid in 3D, and drag the Unroll Shell slider to watch the cylindrical
-        slice at the active {`$x$`} beautifully unwrap into a flat, rectangular sheet.
       </CustomTypography>
       <CustomTypography>
         If you removed this slice and laid it flat, it would form a rectangular prism.
