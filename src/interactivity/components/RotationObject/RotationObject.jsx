@@ -10,18 +10,43 @@ const RotationObject = ({
   sides = 90,
   normalMaterial = true,
   shift = [0, 0, 0],
+  axis = "x",
+  solidVolume = false,
 }) => {
   const meshRef = useRef();
 
   const points = useMemo(() => {
     const pts = [];
     const dx = 0.5 / resolution;
-    for (let i = domain[0]; i < domain[1]; i += dx) {
-      pts.push(new Vector2(func(i), i));
+
+    if (solidVolume && axis === "y") {
+      // Lathe a closed 2D region to form a solid 3D volume:
+      // Start at bottom inner radius, go to bottom outer radius,
+      // follow the curve back, and close the loop.
+      pts.push(new Vector2(domain[0], 0));
+      pts.push(new Vector2(domain[1], 0));
+      for (let i = domain[1]; i >= domain[0]; i -= dx) {
+        pts.push(new Vector2(i, func(i)));
+      }
+      pts.push(new Vector2(domain[0], func(domain[0])));
+      pts.push(new Vector2(domain[0], 0));
+    } else {
+      for (let i = domain[0]; i < domain[1]; i += dx) {
+        if (axis === "y") {
+          pts.push(new Vector2(i, func(i)));
+        } else {
+          pts.push(new Vector2(func(i), i));
+        }
+      }
+      const endVal = domain[1];
+      if (axis === "y") {
+        pts.push(new Vector2(endVal, func(endVal)));
+      } else {
+        pts.push(new Vector2(func(endVal), endVal));
+      }
     }
-    pts.push(new Vector2(func(domain[1]), domain[1]));
     return pts;
-  }, [domain, func, resolution]);
+  }, [domain, func, resolution, axis, solidVolume]);
 
   // Imperatively manage the LatheGeometry so that the previous geometry is
   // explicitly disposed before the new one is assigned. Without this, R3F
@@ -38,11 +63,14 @@ const RotationObject = ({
     };
   }, [points, sides]);
 
+  const rotX = axis === "y" ? 0 : -Math.PI / 2;
+  const rotZ = axis === "y" ? 0 : -Math.PI / 2;
+
   return (
     <mesh
       ref={meshRef}
-      rotation-z={-Math.PI / 2}
-      rotation-x={-Math.PI / 2}
+      rotation-z={rotZ}
+      rotation-x={rotX}
       position={shift}
     >
       {normalMaterial ? <TranslucentNormalMaterial /> : <DarkPhongMaterial />}
