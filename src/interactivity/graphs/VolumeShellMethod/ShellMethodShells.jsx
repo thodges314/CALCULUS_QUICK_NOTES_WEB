@@ -77,7 +77,7 @@ const ShellMethodShells = () => {
             functionName="f(x)"
             value={value}
             shift={twoDView}
-            displayTopLabel={false}
+            displayTopLabel={true}
           />
           <CameraControls ref={cameraRef} />
           <Axes
@@ -105,7 +105,7 @@ const ShellMethodShells = () => {
                 onChange={(_evt, newValue) => setValue(newValue)}
                 value={value}
                 min={domain[0]}
-                max={domain[1]}
+                max={domain[1] - step}
                 step={step}
                 size="small"
                 valueLabelDisplay="auto"

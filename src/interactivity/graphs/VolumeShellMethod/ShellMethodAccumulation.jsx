@@ -37,7 +37,7 @@ const ShellMethodAccumulation = () => {
   const step = useMemo(() => (domain[1] - domain[0]) / 100, [domain]); // Smooth scrubbing for integration limit
   const cameraRef = useRef();
   const [threeDee, setThreeDee] = useState(false);
-  const [value, setValue] = useState(domain[0] + 0.1); // Start slightly offset so the shell is visible
+  const [value, setValue] = useState(domain[0]); // Start at exactly 0.00π
   const [unrolled, setUnrolled] = useState(false);
 
   const handleRotationChange = (checked) => {
@@ -114,7 +114,7 @@ const ShellMethodAccumulation = () => {
               <CustomSlider
                 onChange={(_evt, newValue) => setValue(newValue)}
                 value={value}
-                min={domain[0] + 0.05} // Keep slightly above 0 so circumference has a visible shape
+                min={domain[0]} // Full range from exactly 0.00π
                 max={domain[1]}
                 step={step}
                 size="small"

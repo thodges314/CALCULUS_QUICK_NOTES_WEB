@@ -72,6 +72,8 @@ const UnrollingShell = ({
   // The geometry itself is centered perfectly at shift, no extra offset required.
   const meshPosition = shift;
 
+  if (radius < 0.001 || height < 0.001) return null;
+
   return (
     <mesh position={meshPosition}>
       <primitive object={geometry} attach="geometry" />
