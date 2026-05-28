@@ -1,10 +1,10 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useMemo } from "react";
 import * as d3 from "d3";
 import CanvasCard from "components/interface/CanvasCard";
 import CustomSlider from "components/interface/CustomSlider";
 import ControlsCard, { ControlsRow } from "components/interface/ControlsCard";
 import DisplayEquation, { InlineEquation } from "components/interface/DisplayEquation";
-import { FormGroup } from "@mui/material";
+import { FormGroup, Switch } from "@mui/material";
 import { hexToRgba } from "utils/utils";
 import {
   synthSunsetMagenta,
@@ -13,6 +13,7 @@ import {
   synthSunsetPink,
   synthCyberLightBlue,
   synthCyberPaleBlue,
+  synthCyberPink,
   themePurple,
 } from "interactivity/resources/constants/colors";
 
@@ -155,10 +156,6 @@ const anchorToTransform = (anchor) => {
 // ─── Slider marks ───────────────────────────────────────────────────────────
 
 const LABELED_INDICES = new Set([0, 4, 8, 12, 16]);
-const SLIDER_MARKS = STANDARD_ANGLES.map((angle, idx) => ({
-  value: idx,
-  label: LABELED_INDICES.has(idx) ? `${angle.deg}°` : undefined,
-}));
 
 // ─── Per-angle coordinate overlay fine-tuning ───────────────────────────────
 // Base position: (lx + xShift, ly - 18 + yShift)
@@ -187,22 +184,40 @@ const COORD_SHIFTS = [
 
 // ─── Component ─────────────────────────────────────────────────────────────
 
-const UnitCircleGraph = () => {
-  const svgRef         = useRef(null);
-  const initializedRef = useRef(false);
+const SWITCH_SX = {
+  "& .MuiSwitch-switchBase": {
+    color: hexToRgba(synthCyberPink, 0.5),
+  },
+  "& .MuiSwitch-switchBase + .MuiSwitch-track": {
+    backgroundColor: hexToRgba(synthCyberPink, 0.3),
+  },
+  "& .MuiSwitch-switchBase.Mui-checked": {
+    color: hexToRgba(synthCyberPink),
+  },
+  "& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track": {
+    backgroundColor: hexToRgba(synthCyberPink),
+  },
+};
 
-  // Mutable D3 element refs
-  const radialRef    = useRef(null);
-  const cosLineRef   = useRef(null);
-  const sinLineRef   = useRef(null);
-  const activeDotRef = useRef(null);
-  const arcPathRef   = useRef(null);
+const UnitCircleGraph = () => {
+  const svgRef             = useRef(null);
+  const initializedRef     = useRef(false);
+  const cosLineRef         = useRef(null);
+  const sinLineRef         = useRef(null);
+  const radialRef          = useRef(null);
+  const activeDotRef       = useRef(null);
+  const arcPathRef         = useRef(null);
+  const degLabelGroupRef   = useRef(null);
+  const radLabelGroupRef   = useRef(null);
 
   // Array ref for coordinate label overlay divs
   const coordLabelRefs = useRef([]);
 
   // Current angle index — drives info panel via React state
   const [angleIdx, setAngleIdx] = useState(0);
+
+  // Degrees ↔ radians toggle
+  const [showDeg, setShowDeg] = useState(true);
 
   useEffect(() => {
     // Guard against double-invoke in React strict mode
@@ -264,6 +279,12 @@ const UnitCircleGraph = () => {
     });
 
     // ── Standard angle dots, degree labels & radian labels ─────────────────
+    // Two groups let us toggle visibility without re-running D3 setup
+    const degLabelGroup = svg.append("g");
+    const radLabelGroup = svg.append("g").attr("display", "none");
+    degLabelGroupRef.current = degLabelGroup;
+    radLabelGroupRef.current = radLabelGroup;
+
     STANDARD_ANGLES.forEach((angle) => {
       const px  = toX(angle.cos);
       const py  = toY(angle.sin);
@@ -271,22 +292,22 @@ const UnitCircleGraph = () => {
       const ly  = toY(LABEL_R * angle.sin);
       const anchor = getTextAnchor(angle.deg);
 
-      // Static dot
+      // Static dot (always visible)
       svg.append("circle")
         .attr("cx", px).attr("cy", py).attr("r", 3.5)
         .attr("fill", PALE_COLOR)
         .attr("fill-opacity", "0.75");
 
-      // Degree label (SVG text)
-      svg.append("text")
+      // Degree label
+      degLabelGroup.append("text")
         .attr("x", lx).attr("y", ly - 6)
         .attr("text-anchor", anchor)
         .attr("fill", PALE_COLOR)
         .attr("font-size", "14")
         .text(`${angle.deg}°`);
 
-      // Radian label (SVG text)
-      svg.append("text")
+      // Radian label
+      radLabelGroup.append("text")
         .attr("x", lx).attr("y", ly + 10)
         .attr("text-anchor", anchor)
         .attr("fill", PALE_COLOR)
@@ -378,8 +399,27 @@ const UnitCircleGraph = () => {
 
   };
 
+  // ── Toggle SVG label groups when showDeg changes ─────────────────────────
 
-  // ── Render ───────────────────────────────────────────────────────────────
+  useEffect(() => {
+    if (!degLabelGroupRef.current) return;
+    degLabelGroupRef.current.attr("display", showDeg ? null : "none");
+    radLabelGroupRef.current.attr("display", showDeg ? "none" : null);
+  }, [showDeg]);
+
+  // ── Dynamic slider marks (switches label text with the toggle) ────────────
+
+  const sliderMarks = useMemo(
+    () => STANDARD_ANGLES.map((angle, idx) => ({
+      value: idx,
+      label: LABELED_INDICES.has(idx)
+        ? (showDeg ? `${angle.deg}°` : angle.radLabel)
+        : undefined,
+    })),
+    [showDeg]
+  );
+
+  // ── Render ────────────────────────────────────────────────────────────────────────
 
   const angle = STANDARD_ANGLES[angleIdx];
 
@@ -465,10 +505,34 @@ const UnitCircleGraph = () => {
                   step={1}
                   defaultValue={0}
                   size="small"
-                  marks={SLIDER_MARKS}
+                  marks={sliderMarks}
                   valueLabelDisplay="auto"
-                  valueLabelFormat={(v) => `${STANDARD_ANGLES[v].deg}°`}
+                  valueLabelFormat={(v) =>
+                    showDeg
+                      ? `${STANDARD_ANGLES[v].deg}°`
+                      : STANDARD_ANGLES[v].radLabel
+                  }
                 />
+              </div>
+            </ControlsRow>
+            <ControlsRow>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 6,
+                  justifyContent: "center",
+                  width: "100%",
+                }}
+              >
+                <span style={{ opacity: showDeg ? 1 : 0.45 }}>deg</span>
+                <Switch
+                  checked={!showDeg}
+                  onChange={() => setShowDeg((d) => !d)}
+                  size="small"
+                  sx={SWITCH_SX}
+                />
+                <span style={{ opacity: showDeg ? 0.45 : 1 }}>rad</span>
               </div>
             </ControlsRow>
           </ControlsCard>

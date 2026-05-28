@@ -283,10 +283,13 @@ const Component = () => (
         {`$({\\color{${cosColor}}{x}}, {\\color{${sinColor}}{y}})$`} coordinates
         of the intersection of a ray from the origin at a given angle with a
         horizontal ray directed along the positive x-axis correspond with the{" "}
-        <em style={{ color: cosColor }}>cosine</em> and{" "}
-        <em style={{ color: sinColor }}>sine</em> values of that same angle. For
-        example, {`$\\cos(30°) = \\frac{\\sqrt{3}}{2}$`} and{" "}
-        {`$\\sin\\!\\left(\\frac{7\\pi}{6}\\right) = \\frac{-1}{2}$`}.
+        <InlineEquation>{`$\\color{${cosColor}}{cosine}$`}</InlineEquation> and{" "}
+        <InlineEquation>{`$\\color{${sinColor}}{sine}$`}</InlineEquation> values
+        of that same angle. For example,{" "}
+        <InlineEquation>{`$\\cos(30°) = \\frac{\\sqrt{3}}{2}$`}</InlineEquation>{" "}
+        and{" "}
+        <InlineEquation>{`$\\sin\\!\\left(\\frac{7\\pi}{6}\\right) = \\frac{-1}{2}$`}</InlineEquation>
+        .
       </CustomTypography>
       <CustomTypography>
         It's worth memorising the values on the unit circle, these will come up
