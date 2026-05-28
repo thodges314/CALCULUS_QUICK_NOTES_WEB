@@ -9,6 +9,17 @@ const ThickCurveyLine = ({
   color,
   shift = [0, 0, 0],
 }) => {
+  if (points.length < 2) return null;
+  let allClose = true;
+  for (let i = 1; i < points.length; i++) {
+    const dist = Math.hypot(points[i].x - points[0].x, points[i].y - points[0].y);
+    if (dist > 0.001) {
+      allClose = false;
+      break;
+    }
+  }
+  if (allClose) return null;
+
   const threepoints = points.map((point) => new Vector3(point.x, point.y, 0));
   const curve = new CatmullRomCurve3(threepoints);
   return (

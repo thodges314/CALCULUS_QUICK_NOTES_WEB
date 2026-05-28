@@ -61,8 +61,8 @@ const Shells = ({
 
   const shellElements = useMemo(() => {
     const arr = [];
-    // Loop through the intervals up to value
-    for (let i = domain[0]; i < value - step / 4; i += step) {
+    // Loop through the intervals up to value inclusive
+    for (let i = domain[0]; i <= value + step / 2; i += step) {
       const h = func(i); // Left-hand height
       const r1 = i;
       const r2 = i + step;
@@ -107,13 +107,10 @@ const Shells = ({
     return arr;
   }, [value, threeDee, domain, func, sides, step]);
 
-  // Calculate the exact left-hand endpoint height of the last rendered step segment
+  // Height of the current active step segment
   const finalHeight = useMemo(() => {
-    if (value <= domain[0]) return func(domain[0]);
-    const k = Math.floor((value - domain[0] - step / 4) / step);
-    const i = domain[0] + k * step;
-    return func(i);
-  }, [value, domain, step, func]);
+    return func(value);
+  }, [value, func]);
 
   return (
     <group position={shift}>

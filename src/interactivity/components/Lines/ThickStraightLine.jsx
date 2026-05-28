@@ -15,18 +15,25 @@ const ThickStraightLine = ({
   color,
   shift = [0, 0, 0],
 }) => {
-  const points = [
-    new Vector3(start[0], start[1], start[2]),
-    new Vector3(end[0], end[1], end[2]),
-  ];
-  const curve = new LineCurve3(...points);
+  const distance = Math.hypot(
+    end[0] - start[0],
+    end[1] - start[1],
+    end[2] - start[2]
+  );
   const labelPos = [
     (start[0] + end[0]) / 2 + (labelRight ? 0.1 : -0.95) * labelProportion,
     (start[1] + end[1]) / 2,
     (start[2] + end[2]) / 2,
   ];
-  return (
-    <>
+
+  let meshElement = null;
+  if (distance >= 0.001) {
+    const points = [
+      new Vector3(start[0], start[1], start[2]),
+      new Vector3(end[0], end[1], end[2]),
+    ];
+    const curve = new LineCurve3(...points);
+    meshElement = (
       <mesh
         rotation-x={rotationX}
         rotation-y={rotationY}
@@ -44,6 +51,12 @@ const ThickStraightLine = ({
           <meshNormalMaterial attach="material" side={DoubleSide} />
         )}
       </mesh>
+    );
+  }
+
+  return (
+    <>
+      {meshElement}
       {label !== "" && (
         <CourierPrime
           position={labelPos}
