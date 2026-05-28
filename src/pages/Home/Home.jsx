@@ -25,6 +25,11 @@ const coolPages = [
       Volume - Disk/Washer Method
     </CustomLink>,
   ],
+  [
+    <CustomLink href="/IntegralApplicationsAndMethods/VolumeShellMethod">
+      Volume - Shell Method
+    </CustomLink>,
+  ],
 ];
 
 const finishedPages = [
@@ -143,6 +148,11 @@ const finishedPages = [
   [
     <CustomLink href="/IntegralApplicationsAndMethods/VolumeDiskwasherMethod">
       Volume - Disk/Washer Method
+    </CustomLink>,
+  ],
+  [
+    <CustomLink href="/IntegralApplicationsAndMethods/VolumeShellMethod">
+      Volume - Shell Method
     </CustomLink>,
   ],
   [

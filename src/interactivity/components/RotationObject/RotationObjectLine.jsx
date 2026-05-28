@@ -5,22 +5,35 @@ import { ThickCurveyLine } from "interactivity/components/Lines";
 const RotationObjectLine = ({
   solid: { domain = [0.1, 1], func = (x) => x, resolution = 10 },
   shift = [0, 0, 0],
+  axis = "x",
 }) => {
   const points = useMemo(() => {
     const pts = [];
     const dx = 0.5 / resolution;
     for (let i = domain[0]; i < domain[1]; i += dx) {
-      pts.push(new Vector2(func(i), i));
+      if (axis === "y") {
+        pts.push(new Vector2(i, func(i)));
+      } else {
+        pts.push(new Vector2(func(i), i));
+      }
     }
-    pts.push(new Vector2(func(domain[1]), domain[1]));
+    const endVal = domain[1];
+    if (axis === "y") {
+      pts.push(new Vector2(endVal, func(endVal)));
+    } else {
+      pts.push(new Vector2(func(endVal), endVal));
+    }
     return pts;
-  }, [domain, func, resolution]);
+  }, [domain, func, resolution, axis]);
+
+  const rotX = axis === "y" ? 0 : Math.PI;
+  const rotZ = axis === "y" ? 0 : -Math.PI / 2;
 
   return (
     <ThickCurveyLine
       points={points}
-      rotationX={Math.PI}
-      rotationZ={-Math.PI / 2}
+      rotationX={rotX}
+      rotationZ={rotZ}
       shift={shift}
     />
   );
