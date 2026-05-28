@@ -391,12 +391,11 @@ const UnitCircleGraph = () => {
           <div style={{ height: 88, display: "flex", flexDirection: "column", justifyContent: "center" }}>
             <div className="uc-info-row">
               <span className="uc-info-label">θ =&nbsp;</span>
-              <span className="uc-info-value">{angle.deg}° or {angle.radLabel}</span>
+              <span className="uc-info-value" style={{ color: "white" }}>{angle.deg}° or <InlineEquation>{`$${RAD_LATEX[angleIdx]}$`}</InlineEquation></span>
               <span className="uc-info-sep">|</span>
               <span className="uc-info-label">Point =&nbsp;</span>
               <span className="uc-info-value">
-                (<InlineEquation>{`$\\color{${COS_COLOR}}{${angle.cosLaTeX}}$`}</InlineEquation>,{" "}
-                <InlineEquation>{`$\\color{${SIN_COLOR}}{${angle.sinLaTeX}}$`}</InlineEquation>)
+                <InlineEquation>{`$\\left(\\color{${COS_COLOR}}{${angle.cosLaTeX}},\\,\\color{${SIN_COLOR}}{${angle.sinLaTeX}}\\right)$`}</InlineEquation>
               </span>
             </div>
             <div className="uc-info-row">
@@ -437,7 +436,7 @@ const UnitCircleGraph = () => {
                 ref={(el) => { coordLabelRefs.current[i] = el; }}
               >
                 <DisplayEquation style={{ fontSize: "0.68rem", lineHeight: 1 }}>
-                  {`$$\\color{${PALE_COLOR}}{(}\\color{${COS_COLOR}}{${angle.cosLaTeX}}\\color{${PALE_COLOR}}{,}\\; \\color{${SIN_COLOR}}{${angle.sinLaTeX}}\\color{${PALE_COLOR}}{)}$$`}
+                  {`$$\\color{${PALE_COLOR}}{\\left(\\color{${COS_COLOR}}{${angle.cosLaTeX}},\\;\\color{${SIN_COLOR}}{${angle.sinLaTeX}}\\right)}$$`}
                 </DisplayEquation>
               </div>
             ))}
