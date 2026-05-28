@@ -345,7 +345,7 @@ const UnitCircleGraph = () => {
                 ref={(el) => { coordLabelRefs.current[i] = el; }}
               >
                 <DisplayEquation style={{ fontSize: "0.68rem", lineHeight: 1 }}>
-                  {`$$(\\color{${COS_COLOR}}{${angle.cosLaTeX}},\\; \\color{${SIN_COLOR}}{${angle.sinLaTeX}})$$`}
+                  {`$$\\color{${PALE_COLOR}}{(}\\color{${COS_COLOR}}{${angle.cosLaTeX}}\\color{${PALE_COLOR}}{,}\\; \\color{${SIN_COLOR}}{${angle.sinLaTeX}}\\color{${PALE_COLOR}}{)}$$`}
                 </DisplayEquation>
               </div>
             ))}
