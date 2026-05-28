@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/8480.d9fbe4d1.chunk.js","mappings":"sKACA,Q,QAAqC,O","sources":["pages/IntegralApplicationsAndMethods/VolumeDiskwasherMethod/index.js"],"sourcesContent":["import VolumeDiskWasherMethod from \"./VolumeDiskwasherMethod\";\nexport default VolumeDiskWasherMethod;\n"],"names":[],"sourceRoot":""}
