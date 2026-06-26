@@ -13,7 +13,7 @@ const RotationObject = ({
   axis = "x",
   solidVolume = false,
 }) => {
-  const meshRef = useRef();
+  const meshRef = useRef(); // gpu memory leak prevention - dispose of old geometries
 
   const points = useMemo(() => {
     const pts = [];
@@ -67,12 +67,7 @@ const RotationObject = ({
   const rotZ = axis === "y" ? 0 : -Math.PI / 2;
 
   return (
-    <mesh
-      ref={meshRef}
-      rotation-z={rotZ}
-      rotation-x={rotX}
-      position={shift}
-    >
+    <mesh ref={meshRef} rotation-z={rotZ} rotation-x={rotX} position={shift}>
       {normalMaterial ? <TranslucentNormalMaterial /> : <DarkPhongMaterial />}
     </mesh>
   );

@@ -8,17 +8,15 @@ export const toPascalCase = (string) =>
     .replace(new RegExp(/[^\w\s]/, "g"), "")
     .replace(
       new RegExp(/\s+(.)(\w*)/, "g"),
-      (_$1, $2, $3) => `${$2.toUpperCase() + $3}`
+      (_$1, $2, $3) => `${$2.toUpperCase() + $3}`,
     )
     .replace(new RegExp(/\w/), (s) => s.toUpperCase());
 
 export const location = (path = "/") => {
-  const [PCCategory, PCSubcategory] = path
-    .split("/")
-    .slice(1);
+  const [PCCategory, PCSubcategory] = path.split("/").slice(1);
   if (!PCCategory) return ["Home", ""];
   const categoryObject = items.find(
-    (item) => toPascalCase(item.name) === PCCategory
+    (item) => toPascalCase(item.name) === PCCategory,
   );
   const category = categoryObject ? categoryObject.name : "";
   const subcategory = categoryObject
@@ -37,6 +35,16 @@ export const debounce = (callback, wait) => {
 };
 
 export const hexToRgba = (hex, opacity) => {
+  const leadingZeros = (hex) => 6 - hex.toString(16).length;
+  const hexString = "0".repeat(leadingZeros(hex)) + hex.toString(16);
+  const r = parseInt(hexString.slice(0, 2), 16);
+  const g = parseInt(hexString.slice(2, 4), 16);
+  const b = parseInt(hexString.slice(4, 6), 16);
+
+  return `rgba(${r}, ${g}, ${b}, ${opacity || 1})`;
+};
+
+export const hexToRgbaTypeScript = (hex, opacity) => {
   const leadingZeros = (hex) => 6 - hex.toString(16).length;
   const hexString = "0".repeat(leadingZeros(hex)) + hex.toString(16);
   const r = parseInt(hexString.slice(0, 2), 16);
