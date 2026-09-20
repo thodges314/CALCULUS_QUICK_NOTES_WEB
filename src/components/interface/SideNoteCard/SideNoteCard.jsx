@@ -1,39 +1,9 @@
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-
-import { styled } from "@mui/material/styles";
-import { hexToRgba } from "utils/utils";
-import {
-  synthSunsetPink,
-  themeBackground,
-} from "interactivity/resources/constants/colors";
-
-const backgroundColor = hexToRgba(themeBackground, 1);
-const sunsetPinkHeavy = hexToRgba(synthSunsetPink, 1);
-const sunsetPinkLight = hexToRgba(synthSunsetPink, 0.1);
-
-const StyledSideNoteCard = styled(Card)({
-  width: "700px",
-  marginLeft: "auto",
-  marginRight: "auto",
-  marginTop: "40px",
-  color: sunsetPinkHeavy,
-  backgroundColor: backgroundColor,
-  borderLeft: `1px solid ${sunsetPinkLight}`,
-  borderRight: `1px solid ${sunsetPinkLight}`,
-  borderBottom: `1px solid ${sunsetPinkHeavy}`,
-  borderTop: `1px solid ${sunsetPinkHeavy}`,
-  "& > div": {
-    display: "flex",
-    alignItems: "center",
-    flexWrap: "wrap",
-  },
-});
-
-const SideNoteCard = ({ children }) => (
-  <StyledSideNoteCard sx={{ boxShadow: `4px 4px 4px 4px ${sunsetPinkHeavy}` }}>
-    <CardContent>{children}</CardContent>
-  </StyledSideNoteCard>
+const SideNoteCard = ({ children, className = "" }) => (
+  <div
+    className={`w-175 mx-auto mt-10 rounded bg-theme-background text-synth-sunset-pink shadow-[4px_4px_4px_4px] shadow-synth-sunset-pink border-t border-b border-synth-sunset-pink border-l border-r border-synth-sunset-pink/10 ${className}`.trim()}
+  >
+    <div className="flex items-center flex-wrap p-4 pb-6">{children}</div>
+  </div>
 );
 
 export default SideNoteCard;
