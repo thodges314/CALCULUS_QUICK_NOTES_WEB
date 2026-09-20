@@ -1,27 +1,27 @@
-import Link from "@mui/material/Link";
 import { Link as RouterLink } from "react-router-dom";
-import { synthSunsetPink } from "interactivity/resources/constants/colors";
-import { hexToRgba } from "utils/utils";
-
-const sunsetPinkHeavy = hexToRgba(synthSunsetPink, 1);
 
 const CustomLink = ({ href, children }) => {
   const isExternal = href.startsWith("http");
+  const linkClasses =
+    "no-underline text-synth-sunset-pink hover:opacity-80 transition-opacity";
+
+  if (isExternal) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={linkClasses}
+      >
+        {children}
+      </a>
+    );
+  }
 
   return (
-    <Link
-      component={isExternal ? "a" : RouterLink}
-      href={isExternal ? href : undefined}
-      to={!isExternal ? href : undefined}
-      target={isExternal ? "_blank" : undefined}
-      underline="none"
-      color={sunsetPinkHeavy}
-      sx={{
-        fontWeight: "fontWeightHeavy",
-      }}
-    >
+    <RouterLink to={href} className={linkClasses}>
       {children}
-    </Link>
+    </RouterLink>
   );
 };
 

@@ -1,17 +1,22 @@
 import Slider from "@mui/material/Slider";
-import { styled } from "@mui/material/styles";
 import { hexToRgba } from "utils/utils";
-
 import { synthCyberPink } from "interactivity/resources/constants/colors";
 
 const cyberPink = hexToRgba(synthCyberPink);
 
-export const CustomSlider = styled(Slider)({
-  color: cyberPink,
-  marginLeft: 8,
-  marginRight: 8,
-  marginTop: 8,
-  ".MuiSlider-markLabel": {
-    color: cyberPink,
-  },
-});
+export const CustomSlider = (props) => (
+  <Slider
+    {...props}
+    sx={{
+      color: cyberPink,
+      mx: 1, // marginLeft & marginRight: 8px
+      mt: 1, // marginTop: 8px
+      "& .MuiSlider-markLabel": {
+        color: cyberPink,
+      },
+      ...props.sx,
+    }}
+  />
+);
+
+export default CustomSlider;
