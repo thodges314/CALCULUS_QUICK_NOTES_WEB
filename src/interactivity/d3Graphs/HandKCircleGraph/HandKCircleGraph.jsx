@@ -13,7 +13,7 @@ import {
 } from "interactivity/resources/constants/colors";
 import EqnDisplay from "./HandKCircleEqnPanel";
 
-import { FormGroup } from "@mui/material";
+import CheckboxLabel from "components/interface/CheckboxLabel";
 
 import "./HandKCircleGraph.css";
 
@@ -633,7 +633,7 @@ const HandKCircleGraph = () => {
           <svg id="chart" ref={chartRef} fillOpacity="0" fill="none"></svg>
         </CanvasCard>
       </div>
-      <FormGroup>
+      <div className="flex flex-col">
         <div
           style={{
             width: "860px",
@@ -673,7 +673,7 @@ const HandKCircleGraph = () => {
             </ControlsRow>
           </ControlsCard>
         </div>
-      </FormGroup>
+      </div>
     </>
   );
 };

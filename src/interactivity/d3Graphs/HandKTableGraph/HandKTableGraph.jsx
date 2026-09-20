@@ -11,7 +11,7 @@ import { synthSunsetYellow } from "interactivity/resources/constants/colors";
 import parabolaValuesArray from "./parabolaValuesArray";
 import EqnDisplay from "./HandKTableEqnPanel";
 
-import { FormGroup } from "@mui/material";
+import CheckboxLabel from "components/interface/CheckboxLabel";
 
 import "./HandKTableGraph.css";
 
@@ -235,7 +235,7 @@ const HandKTableGraph = () => {
           <svg id="chart" ref={chartRef} fillOpacity="0" fill="none"></svg>
         </CanvasCard>
       </div>
-      <FormGroup>
+      <div className="flex flex-col">
         <div
           style={{
             width: "860px",
@@ -261,7 +261,7 @@ const HandKTableGraph = () => {
             </ControlsRow>
           </ControlsCard>
         </div>
-      </FormGroup>
+      </div>
       <div
         style={{
           width: "700px",

@@ -3,7 +3,7 @@ import CanvasCard from "components/interface/CanvasCard";
 import { Canvas } from "@react-three/fiber";
 import { CameraControls, Environment } from "@react-three/drei";
 import CustomSlider from "components/interface/CustomSlider";
-import { FormGroup, FormControlLabel } from "@mui/material";
+import CheckboxLabel from "components/interface/CheckboxLabel";
 import ControlsCard, { ControlsRow } from "components/interface/ControlsCard";
 import CustomCheckbox from "components/interface/CustomCheckbox";
 import { ambientLightBlue } from "interactivity/resources/constants/colors";
@@ -88,9 +88,9 @@ const ShellMethodShells = () => {
           />
         </Canvas>
       </CanvasCard>
-      <FormGroup>
+      <div className="flex flex-col">
         <ControlsCard>
-          <FormControlLabel
+          <CheckboxLabel
             control={
               <CustomCheckbox
                 checked={threeDee}
@@ -115,7 +115,7 @@ const ShellMethodShells = () => {
             </div>
           </ControlsRow>
         </ControlsCard>
-      </FormGroup>
+      </div>
     </div>
   );
 };

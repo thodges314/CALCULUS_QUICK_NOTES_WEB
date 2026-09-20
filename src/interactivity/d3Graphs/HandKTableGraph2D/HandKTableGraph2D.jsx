@@ -7,7 +7,7 @@ import { marksArray } from "../utilities";
 import parabolaValuesArray from "./parabolaValuesArray";
 import EqnDisplay from "./HandKTableEqnPanel2D";
 
-import { FormGroup } from "@mui/material";
+import CheckboxLabel from "components/interface/CheckboxLabel";
 
 import "./HandKTableGraph2D.css";
 
@@ -144,7 +144,7 @@ const HandKTableGraph = () => {
           <svg id="chart" ref={chartRef} fillOpacity="0" fill="none"></svg>
         </CanvasCard>
       </div>
-      <FormGroup>
+      <div className="flex flex-col">
         <div
           style={{
             width: "860px",
@@ -184,7 +184,7 @@ const HandKTableGraph = () => {
             </ControlsRow>
           </ControlsCard>
         </div>
-      </FormGroup>
+      </div>
     </>
   );
 };

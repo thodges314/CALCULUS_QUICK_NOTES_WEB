@@ -6,7 +6,7 @@ import CanvasCard from "components/interface/CanvasCard";
 import { marksArray } from "../utilities";
 import EqnDisplay from "./HandKCircleEqnShiftPanel";
 
-import { FormGroup } from "@mui/material";
+import CheckboxLabel from "components/interface/CheckboxLabel";
 
 import "./HandKCircleGraphShift.css";
 
@@ -152,7 +152,7 @@ const HandKCircleGraphShift = () => {
           <svg id="chart" ref={chartRef} fillOpacity="0" fill="none"></svg>
         </CanvasCard>
       </div>
-      <FormGroup>
+      <div className="flex flex-col">
         <div
           style={{
             width: "860px",
@@ -192,7 +192,7 @@ const HandKCircleGraphShift = () => {
             </ControlsRow>
           </ControlsCard>
         </div>
-      </FormGroup>
+      </div>
     </>
   );
 };

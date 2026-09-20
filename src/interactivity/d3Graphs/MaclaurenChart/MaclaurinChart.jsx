@@ -1,7 +1,7 @@
 import CanvasCard from "components/interface/CanvasCard";
 import ControlsCard, { ControlsRow } from "components/interface/ControlsCard";
 import CustomSlider from "components/interface/CustomSlider";
-import { FormGroup } from "@mui/material";
+import CheckboxLabel from "components/interface/CheckboxLabel";
 import EqnDisplay from "./EqnDisplay";
 
 import * as d3 from "d3";
@@ -143,7 +143,7 @@ const MaclaurinChart = () => {
       <CanvasCard height={height} width={width}>
         <svg id="chart" ref={chartRef} fillOpacity="0" fill="none"></svg>
       </CanvasCard>
-      <FormGroup>
+      <div className="flex flex-col">
         <ControlsCard>
           <ControlsRow>
             <div>iterations</div>
@@ -159,7 +159,7 @@ const MaclaurinChart = () => {
             </div>
           </ControlsRow>
         </ControlsCard>
-      </FormGroup>
+      </div>
     </div>
   );
 };
