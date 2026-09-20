@@ -272,7 +272,8 @@ const HandKTableGraph = () => {
         }}
       >
         <CustomTable
-          sx={{ p: 0, width: "50px" }}
+          className="m-0"
+          sx={{ p: 0, width: "50px", headerWidth: "148px" }}
           entries={[row1, row2, row3]}
           headerCol
         />
