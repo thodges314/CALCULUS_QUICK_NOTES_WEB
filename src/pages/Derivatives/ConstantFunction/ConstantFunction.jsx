@@ -3,7 +3,7 @@ import SectionCard from "components/interface/SectionCard";
 import CustomTypography from "components/interface/CustomTypography";
 import DisplayEquation from "components/interface/DisplayEquation";
 import ConstantFunctionGraph from "interactivity/d3Graphs/ConstantFunctionGraph";
-import Typography from "@mui/material/Typography";
+import SectionHeading from "components/interface/SectionHeading";
 
 const Component = () => (
   <>
@@ -12,18 +12,18 @@ const Component = () => (
       <CustomTypography>where {"$\\alpha$"} is any constant.</CustomTypography>
     </SummaryCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Explanation
-      </Typography>
+      </SectionHeading>
       <CustomTypography>
         This is intuitive. The graph of {`$y=\\alpha$`} will be a horizontal
         line, and will have a slope of 0 everywhere.
       </CustomTypography>
     </SectionCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Example
-      </Typography>
+      </SectionHeading>
       <div
         style={{
           display: "flex",

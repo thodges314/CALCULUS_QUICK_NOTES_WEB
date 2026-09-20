@@ -7,7 +7,7 @@ import DisplayEquation from "components/interface/DisplayEquation";
 import CustomLink from "components/interface/CustomLink";
 import CustomTable from "components/interface/CustomTable";
 
-import Typography from "@mui/material/Typography";
+import SectionHeading from "components/interface/SectionHeading";
 
 import {
   synthSunsetMagenta,
@@ -81,9 +81,9 @@ const Component = () => (
   <>
     <SummaryTable entries={entries} />
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Explanation
-      </Typography>
+      </SectionHeading>
       <CustomTypography>
         Once you know the derivatives of Sine and Cosine, you can find the other
         derivatives using trig identities and the{" "}
@@ -93,9 +93,9 @@ const Component = () => (
       </CustomTypography>
     </SectionCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Example
-      </Typography>
+      </SectionHeading>
       <CustomTypography>
         Find the derivative of the Tangent function using Sine and Cosine:
       </CustomTypography>
@@ -146,9 +146,9 @@ const Component = () => (
       </CustomTypography>
     </SideNoteCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Example
-      </Typography>
+      </SectionHeading>
       <CustomTypography>
         Find the derivative of the Secant function using Cosine:
       </CustomTypography>

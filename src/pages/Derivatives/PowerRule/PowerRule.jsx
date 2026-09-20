@@ -4,7 +4,7 @@ import SideNoteCard from "components/interface/SideNoteCard";
 import CustomTypography from "components/interface/CustomTypography";
 import CustomTable from "components/interface/CustomTable";
 import DisplayEquation from "components/interface/DisplayEquation";
-import Typography from "@mui/material/Typography";
+import SectionHeading from "components/interface/SectionHeading";
 import CustomLink from "components/interface/CustomLink";
 
 import {
@@ -35,9 +35,9 @@ const Component = () => (
       </DisplayEquation>
     </SummaryCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Explanation
-      </Typography>
+      </SectionHeading>
       <CustomTypography>
         You will see the power rule quite a lot. If some differentiable function{" "}
         {"$u$"} is raised to a power {"$n$"}, then to take the derivative, bring
@@ -54,9 +54,9 @@ const Component = () => (
       </CustomTypography>
     </SectionCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Example
-      </Typography>
+      </SectionHeading>
       <DisplayEquation>
         {`$$\\frac{\\mathrm{d} }{\\mathrm{d} x} {\\color{${sunsetMagenta}}{x}}^{\\color{${sunsetYellow}}{3}} = {\\color{${sunsetYellow}}{3}}{\\color{${sunsetMagenta}}{x}}^{\\color{${sunsetYellow}}{3-1}} = 3x^2$$`}
       </DisplayEquation>
@@ -72,9 +72,9 @@ const Component = () => (
       </CustomTypography>
     </SideNoteCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Example
-      </Typography>
+      </SectionHeading>
       <div
         style={{
           display: "flex",

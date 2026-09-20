@@ -2,7 +2,7 @@ import SummaryCard from "components/interface/SummaryCard";
 import SectionCard from "components/interface/SectionCard";
 import CustomTypography from "components/interface/CustomTypography";
 import DisplayEquation from "components/interface/DisplayEquation";
-import Typography from "@mui/material/Typography";
+import SectionHeading from "components/interface/SectionHeading";
 import CustomTable from "components/interface/CustomTable";
 import CustomLink from "components/interface/CustomLink";
 import SideNoteCard from "components/interface/SideNoteCard";
@@ -257,9 +257,9 @@ const Component = () => (
       </DisplayEquation>
     </SummaryCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Explanation
-      </Typography>
+      </SectionHeading>
       <CustomTypography>
         A <em>Taylor Series</em> or <em>Maclaurin Series</em> expresses a
         function as an infinite series that is calculated from a function's
@@ -276,9 +276,9 @@ const Component = () => (
       </CustomTypography>
     </SectionCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Example of a Maclaurin Series
-      </Typography>
+      </SectionHeading>
       <CustomTypography>
         Suppose that we want to find a Maclaurin Series and interval of
         convergence of this series for the Cosine function. The format of the
@@ -413,9 +413,9 @@ const Component = () => (
       </CustomTypography>
     </SectionCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Example of a Taylor Series
-      </Typography>
+      </SectionHeading>
       <CustomTypography>
         Let's create a Taylor Series for {"$f(x)=\\ln(x)$"} around {"$x=2$"}. A
         Taylor Series takes the form

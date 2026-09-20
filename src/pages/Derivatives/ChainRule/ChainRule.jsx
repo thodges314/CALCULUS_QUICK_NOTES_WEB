@@ -3,7 +3,7 @@ import SectionCard from "components/interface/SectionCard";
 import SideNoteCard from "components/interface/SideNoteCard";
 import CustomTypography from "components/interface/CustomTypography";
 import DisplayEquation from "components/interface/DisplayEquation";
-import Typography from "@mui/material/Typography";
+import SectionHeading from "components/interface/SectionHeading";
 import CustomTable from "components/interface/CustomTable";
 import CustomLink from "components/interface/CustomLink";
 
@@ -55,9 +55,9 @@ const Component = () => (
       </DisplayEquation>
     </SummaryCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Explanation
-      </Typography>
+      </SectionHeading>
       <CustomTypography>
         The chain rule is useful when you have nested functions. While it's
         written above with two nested functions, you can nest as many functions
@@ -78,9 +78,9 @@ const Component = () => (
       </CustomTypography>
     </SectionCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Example with Three Layers
-      </Typography>
+      </SectionHeading>
       <div
         style={{
           display: "flex",

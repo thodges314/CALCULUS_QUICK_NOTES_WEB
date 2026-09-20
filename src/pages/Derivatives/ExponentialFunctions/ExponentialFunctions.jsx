@@ -2,7 +2,8 @@ import SummaryCard from "components/interface/SummaryCard";
 import SectionCard from "components/interface/SectionCard";
 import CustomTypography from "components/interface/CustomTypography";
 import DisplayEquation from "components/interface/DisplayEquation";
-import Typography from "@mui/material/Typography";
+import SectionHeading from "components/interface/SectionHeading";
+import InlineText from "components/interface/InlineText";
 import CustomTable from "components/interface/CustomTable";
 import CustomLink from "components/interface/CustomLink";
 
@@ -32,7 +33,7 @@ const Component = () => (
           "$$\\frac{\\mathrm{d} }{\\mathrm{d} x}\\alpha ^u = \\alpha ^u\\ln(u)*\\frac{\\mathrm{d} u}{\\mathrm{d} x}$$"
         }
       </DisplayEquation>
-      <Typography>and specifically</Typography>
+      <InlineText>and specifically</InlineText>
       <DisplayEquation>
         {
           "$$\\frac{\\mathrm{d} }{\\mathrm{d} x}e ^u = e ^u*\\frac{\\mathrm{d} u}{\\mathrm{d} x}$$"
@@ -40,9 +41,9 @@ const Component = () => (
       </DisplayEquation>
     </SummaryCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Explanation
-      </Typography>
+      </SectionHeading>
       <CustomTypography>
         If you have to find the derivative of an exponential function with{" "}
         {"$e$"} as it's base, it's your lucky day. Recall that {"$ln(e)=1$"}.
@@ -51,9 +52,9 @@ const Component = () => (
       </CustomTypography>
     </SectionCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Example with <em>e</em>
-      </Typography>
+      </SectionHeading>
       <div
         style={{
           display: "flex",
@@ -86,9 +87,9 @@ const Component = () => (
       </CustomTypography>
     </SectionCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Example without <em>e</em>
-      </Typography>
+      </SectionHeading>
       <div
         style={{
           display: "flex",

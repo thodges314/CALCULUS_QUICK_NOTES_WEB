@@ -5,7 +5,7 @@ import CustomTypography from "components/interface/CustomTypography";
 import DisplayEquation from "components/interface/DisplayEquation";
 import CustomLink from "components/interface/CustomLink";
 
-import Typography from "@mui/material/Typography";
+import SectionHeading from "components/interface/SectionHeading";
 
 import {
   synthSunsetMagenta,
@@ -26,9 +26,9 @@ const Component = () => (
       </DisplayEquation>
     </SummaryCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Explanation
-      </Typography>
+      </SectionHeading>
       <CustomTypography>
         This rule is a direct analog to the{" "}
         <CustomLink href="/Derivatives/SumOrDifferenceRule">
@@ -40,9 +40,9 @@ const Component = () => (
       </CustomTypography>
     </SectionCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Example
-      </Typography>
+      </SectionHeading>
       <div>
         <DisplayEquation>
           {`$$ \\int {\\color{${sunsetMagenta}}{x^2}} + {\\color{${sunsetYellow}}{\\cos{(x)}}} \\mathrm{d}x = \\int {\\color{${sunsetMagenta}}{x^2}} \\mathrm{d}x + \\int {\\color{${sunsetYellow}}{\\cos{(x)}}} \\mathrm{d}x$$`}

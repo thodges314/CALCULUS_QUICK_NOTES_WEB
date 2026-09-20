@@ -6,7 +6,7 @@ import CustomTable from "components/interface/CustomTable";
 import DisplayEquation from "components/interface/DisplayEquation";
 import CustomLink from "components/interface/CustomLink";
 
-import Typography from "@mui/material/Typography";
+import SectionHeading from "components/interface/SectionHeading";
 
 import {
   synthSunsetMagenta,
@@ -34,9 +34,9 @@ const Component = () => (
       </DisplayEquation>
     </SummaryCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Explanation
-      </Typography>
+      </SectionHeading>
       <CustomTypography>
         This is the rule that we use instead of the{" "}
         <CustomLink href="/Integrals/PowerRule">Power Rule</CustomLink> when{" "}
@@ -50,9 +50,9 @@ const Component = () => (
       </CustomTypography>
     </SectionCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Example
-      </Typography>
+      </SectionHeading>
       <DisplayEquation>{`$$\\int{ \\frac{1}{x} } \\mathrm{d}x $$`}</DisplayEquation>
       <CustomTypography>
         This is the exception to the{" "}
@@ -69,9 +69,9 @@ const Component = () => (
       </CustomTypography>
     </SectionCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Example
-      </Typography>
+      </SectionHeading>
       <DisplayEquation>{`$$ \\int \\cot{(x)} \\mathrm{d}x $$`}</DisplayEquation>
       <CustomTypography>
         This might not immediately present itself as a{" "}
@@ -123,9 +123,9 @@ const Component = () => (
       </CustomTypography>
     </SectionCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Example
-      </Typography>
+      </SectionHeading>
       <DisplayEquation>
         {`$$ \\int\\frac{2x+\\sec{(x)}\\tan{(x)}}{\\sec{(x)}+x^2} \\mathrm{d}x $$`}
       </DisplayEquation>

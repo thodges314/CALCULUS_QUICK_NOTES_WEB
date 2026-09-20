@@ -4,7 +4,7 @@ import SideNoteCard from "components/interface/SideNoteCard";
 import CustomTypography from "components/interface/CustomTypography";
 import DisplayEquation from "components/interface/DisplayEquation";
 import CustomLink from "components/interface/CustomLink";
-import Typography from "@mui/material/Typography";
+import SectionHeading from "components/interface/SectionHeading";
 
 import {
   synthSunsetMagenta,
@@ -26,9 +26,9 @@ const Component = () => (
       <CustomTypography>where {"$\\alpha$"} is any constant.</CustomTypography>
     </SummaryCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Explanation
-      </Typography>
+      </SectionHeading>
       <CustomTypography>
         Whenever a differentiable function is multiplied by a constant, the
         derivative will by that constant multiplied by the derivative of the
@@ -36,9 +36,9 @@ const Component = () => (
       </CustomTypography>
     </SectionCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Example
-      </Typography>
+      </SectionHeading>
       <div>
         <DisplayEquation>
           {`$$\\frac{\\mathrm{d} }{\\mathrm{d} x}{\\color{${sunsetMagenta}}{2}}{\\color{${sunsetYellow}}{x^2}}={\\color{${sunsetMagenta}}{2}}\\left ({\\color{${sunsetYellow}}{\\frac{\\mathrm{d} }{\\mathrm{d} x}x^2}}\\right )={\\color{${sunsetMagenta}}{2}}*{\\color{${sunsetYellow}}{2x}}=4x$$`}
@@ -60,9 +60,9 @@ const Component = () => (
       </CustomTypography>
     </SideNoteCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Example
-      </Typography>
+      </SectionHeading>
       <div>
         <DisplayEquation>
           {`$$\\frac{\\mathrm{d} }{\\mathrm{d} x}{\\color{${sunsetMagenta}}{2}}{\\color{${sunsetYellow}}{\\sin(x)}}={\\color{${sunsetMagenta}}{2}}\\left ({\\color{${sunsetYellow}}{\\frac{\\mathrm{d} }{\\mathrm{d} x}\\sin(x)}}\\right )={\\color{${sunsetMagenta}}{2}}{\\color{${sunsetYellow}}{\\cos(x)}}$$`}

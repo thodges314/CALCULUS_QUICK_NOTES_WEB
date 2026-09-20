@@ -5,7 +5,7 @@ import CustomTypography from "components/interface/CustomTypography";
 import DisplayEquation from "components/interface/DisplayEquation";
 import CustomLink from "components/interface/CustomLink";
 
-import Typography from "@mui/material/Typography";
+import SectionHeading from "components/interface/SectionHeading";
 
 import {
   synthSunsetMagenta,
@@ -27,9 +27,9 @@ const Component = () => (
       <DisplayEquation>{"$$\\int e^u \\mathrm{d}u = e^u+C $$"}</DisplayEquation>
     </SummaryCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Explanation
-      </Typography>
+      </SectionHeading>
       <CustomTypography>
         This is an analog to the{" "}
         <CustomLink href="/Derivatives/ExponentialFunctions">
@@ -58,9 +58,9 @@ const Component = () => (
       </CustomTypography>
     </SideNoteCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Example
-      </Typography>
+      </SectionHeading>
       <DisplayEquation>{`$$\\int e^{2x} \\mathrm{d}x$$`}</DisplayEquation>
       <CustomTypography>
         We can integrate this if we have an integral in the form{" "}

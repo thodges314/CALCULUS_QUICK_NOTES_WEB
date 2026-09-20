@@ -1,4 +1,5 @@
-import Typography from "@mui/material/Typography";
+import SectionHeading from "components/interface/SectionHeading";
+import InlineText from "components/interface/InlineText";
 
 import DisplayEquation from "components/interface/DisplayEquation";
 import CustomLink from "components/interface/CustomLink";
@@ -25,13 +26,13 @@ const Component = () => (
       <DisplayEquation>
         {"$$\\pi \\int_{a}^{b}R(x)^2 dx\\;\\;$$"}
       </DisplayEquation>
-      <Typography>or</Typography>
+      <InlineText>or</InlineText>
       <DisplayEquation>
         {"$$\\;\\;\\pi \\int_{a}^{b} \\left (  R(x)^2 - r(x)^2 \\right ) dx$$"}
       </DisplayEquation>
     </SummaryCard>
     <SectionCard>
-      <Typography variant="h6">Explanation</Typography>
+      <SectionHeading>Explanation</SectionHeading>
       <CustomTypography>
         Both of these methods are used for finding volumes of solids of
         revolution. A solid of revolution is made by taking a graph of a
@@ -52,7 +53,7 @@ const Component = () => (
       </CustomTypography>
     </SectionCard>
     <SectionCard>
-      <Typography variant="h6">Example of Disc Method</Typography>
+      <SectionHeading>Example of Disc Method</SectionHeading>
       <CustomTypography>
         Suppose that you started with the graph of the equation{" "}
         {`$R(x)=x^3-7x^2+14x-5$`} from {`$x=1$`} to {`$x=4$`} and rotated it
@@ -101,7 +102,7 @@ const Component = () => (
       </CustomTypography>
     </SectionCard>
     <SectionCard>
-      <Typography variant="h6">Example of Disc Method: Shifted</Typography>
+      <SectionHeading>Example of Disc Method: Shifted</SectionHeading>
       <CustomTypography>
         If we wanted to revolve the above example around, for example,{" "}
         {`$y=-1$`} instead of the x-axis, we would have to repeat this process,
@@ -130,7 +131,7 @@ const Component = () => (
       </CustomTypography>
     </SectionCard>
     <SectionCard>
-      <Typography variant="h6">Example of Washer Method</Typography>
+      <SectionHeading>Example of Washer Method</SectionHeading>
       <CustomTypography>
         The washer method is the same as the disk method, except we are dealing
         with one function nested insode of another. For example, rotate{" "}

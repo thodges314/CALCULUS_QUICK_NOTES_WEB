@@ -3,7 +3,8 @@ import SectionCard from "components/interface/SectionCard";
 import SideNoteCard from "components/interface/SideNoteCard";
 import CustomTypography from "components/interface/CustomTypography";
 import DisplayEquation from "components/interface/DisplayEquation";
-import Typography from "@mui/material/Typography";
+import SectionHeading from "components/interface/SectionHeading";
+import InlineText from "components/interface/InlineText";
 import CustomTable from "components/interface/CustomTable";
 import CustomLink from "components/interface/CustomLink";
 
@@ -33,7 +34,7 @@ const Component = () => (
           "$$\\frac{\\mathrm{d} }{\\mathrm{d} x} \\log_{\\alpha}(u) = \\frac{1}{\\ln(\\alpha)u}\\frac{\\mathrm{d} u}{\\mathrm{d} x} $$"
         }
       </DisplayEquation>
-      <Typography>and specifically</Typography>
+      <InlineText>and specifically</InlineText>
       <DisplayEquation>
         {
           "$$\\frac{\\mathrm{d} }{\\mathrm{d} x} \\ln(u) = \\frac{1}{u}\\frac{\\mathrm{d} u}{\\mathrm{d} x} $$"
@@ -53,9 +54,9 @@ const Component = () => (
       </CustomTypography>
     </SideNoteCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Explanation
-      </Typography>
+      </SectionHeading>
       <CustomTypography>
         If you have to find the derivative of a natural logarithm, it's your
         lucky day. Recall that the base of the natural logarithm is {"$e$"}, and{" "}
@@ -66,9 +67,9 @@ const Component = () => (
       </CustomTypography>
     </SectionCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Example with <em>ln</em>
-      </Typography>
+      </SectionHeading>
       <div
         style={{
           display: "flex",
@@ -93,9 +94,9 @@ const Component = () => (
       </CustomTypography>
     </SectionCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Example with base 10
-      </Typography>
+      </SectionHeading>
       <div
         style={{
           display: "flex",

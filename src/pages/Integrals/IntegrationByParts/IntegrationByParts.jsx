@@ -3,7 +3,7 @@ import SectionCard from "components/interface/SectionCard";
 import SideNoteCard from "components/interface/SideNoteCard";
 import CustomTypography from "components/interface/CustomTypography";
 import DisplayEquation from "components/interface/DisplayEquation";
-import Typography from "@mui/material/Typography";
+import SectionHeading from "components/interface/SectionHeading";
 import CustomTable from "components/interface/CustomTable";
 import CustomLink from "components/interface/CustomLink";
 
@@ -124,9 +124,9 @@ const Component = () => (
       </CustomTypography>
     </SectionCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Example 1: Polynomial and Transcendantal:
-      </Typography>
+      </SectionHeading>
       <CustomTypography>Consider the integral:</CustomTypography>
       <DisplayEquation>{`$$ {\\int x \\mathit{e}^x \\mathrm{d}x} $$`}</DisplayEquation>
       <CustomTypography>
@@ -182,9 +182,9 @@ const Component = () => (
       <DisplayEquation>{`$$ \\int x \\mathit{e}^x \\mathrm{d}x = x\\,e^x - e^x + C $$`}</DisplayEquation>
     </SectionCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Example 2: Two Transcendentals:
-      </Typography>
+      </SectionHeading>
       <CustomTypography>
         Suppose that your integral involves two transcendental functions:
       </CustomTypography>

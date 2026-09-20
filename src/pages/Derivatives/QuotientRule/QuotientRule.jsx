@@ -3,7 +3,8 @@ import SectionCard from "components/interface/SectionCard";
 import SideNoteCard from "components/interface/SideNoteCard";
 import CustomTypography from "components/interface/CustomTypography";
 import DisplayEquation from "components/interface/DisplayEquation";
-import Typography from "@mui/material/Typography";
+import SectionHeading from "components/interface/SectionHeading";
+import InlineText from "components/interface/InlineText";
 import CustomTable from "components/interface/CustomTable";
 import CustomLink from "components/interface/CustomLink";
 
@@ -35,7 +36,7 @@ const Component = () => (
           "$$\\left (  \\frac{u}{v} \\right )^\\prime = \\frac{u^\\prime v - v^\\prime u}{v^2}\\;\\;$$"
         }
       </DisplayEquation>
-      <Typography>or</Typography>
+      <InlineText>or</InlineText>
       <DisplayEquation>
         {
           "$$\\frac{\\mathrm{d} }{\\mathrm{d} x}\\left (  \\frac{u}{v} \\right ) = \\frac{\\tfrac{\\mathrm{d} u}{\\mathrm{d} x} * v - \\tfrac{\\mathrm{d} v}{\\mathrm{d} x} * u}{v^2}$$"
@@ -43,9 +44,9 @@ const Component = () => (
       </DisplayEquation>
     </SummaryCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Explanation
-      </Typography>
+      </SectionHeading>
       <CustomTypography>
         It's easiest to use the Lagrange notation ({"$f^\\prime(x)$"}) to
         remember the quotient rule. You just have to commit this pattern to
@@ -62,9 +63,9 @@ const Component = () => (
       </CustomTypography>
     </SectionCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Example
-      </Typography>
+      </SectionHeading>
       <div
         style={{
           display: "flex",

@@ -2,7 +2,8 @@ import SummaryCard from "components/interface/SummaryCard";
 import SectionCard from "components/interface/SectionCard";
 import CustomTypography from "components/interface/CustomTypography";
 import DisplayEquation from "components/interface/DisplayEquation";
-import Typography from "@mui/material/Typography";
+import SectionHeading from "components/interface/SectionHeading";
+import InlineText from "components/interface/InlineText";
 import CustomTable from "components/interface/CustomTable";
 import CustomLink from "components/interface/CustomLink";
 
@@ -40,7 +41,7 @@ const Component = () => (
       <DisplayEquation>
         {"$$ {\\left (uv  \\right )}^\\prime = uv^\\prime +vu^\\prime\\;\\;$$"}
       </DisplayEquation>
-      <Typography>or</Typography>
+      <InlineText>or</InlineText>
       <DisplayEquation>
         {
           "$$\\;\\;\\frac{\\mathrm{d} }{\\mathrm{d} x} \\left ( uv \\right ) = u \\frac{\\mathrm{d} v}{\\mathrm{d} x} + v \\frac{\\mathrm{d} u}{\\mathrm{d} x}$$"
@@ -48,9 +49,9 @@ const Component = () => (
       </DisplayEquation>
     </SummaryCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Explanation
-      </Typography>
+      </SectionHeading>
       <CustomTypography>
         It's easiest to use the Lagrange notation ({"$f^\\prime(x)$"}) to
         remember the product rule. Just remember that if two differentiable
@@ -64,9 +65,9 @@ const Component = () => (
       </CustomTypography>
     </SectionCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Example
-      </Typography>
+      </SectionHeading>
       <div
         style={{
           display: "flex",

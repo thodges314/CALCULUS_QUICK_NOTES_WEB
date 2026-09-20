@@ -4,7 +4,7 @@ import SectionCard from "components/interface/SectionCard";
 import SideNoteCard from "components/interface/SideNoteCard";
 import CustomTypography from "components/interface/CustomTypography";
 import DisplayEquation from "components/interface/DisplayEquation";
-import Typography from "@mui/material/Typography";
+import SectionHeading from "components/interface/SectionHeading";
 import CustomTable from "components/interface/CustomTable";
 import CustomLink from "components/interface/CustomLink";
 
@@ -50,9 +50,9 @@ const Component = () => (
   <>
     <SummaryTable entries={entries} />
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Explanation
-      </Typography>
+      </SectionHeading>
       <CustomTypography>
         One set of trig integrals given in many textbooks and tables are the{" "}
         <CustomLink href="/Derivatives/TrigonometricDerivatives">
@@ -100,9 +100,9 @@ const Component = () => (
       </CustomTypography>
     </SectionCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Derivation
-      </Typography>
+      </SectionHeading>
       <DisplayEquation>{`$$ \\int{tan(x)dx} $$`}</DisplayEquation>
       <CustomTypography>
         To find the integal of the Tangent function, use{" "}
@@ -139,9 +139,9 @@ const Component = () => (
       <DisplayEquation>{`$$ -ln \\left | \\color{${sunsetYellow}}{cos(x)} \\right | + C$$`}</DisplayEquation>
     </SectionCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Derivation
-      </Typography>
+      </SectionHeading>
       <DisplayEquation>{`$$ \\int{sec(x)dx} $$`}</DisplayEquation>
       <CustomTypography>
         This one is a little tricker. If one were to try to rewrite this as{" "}

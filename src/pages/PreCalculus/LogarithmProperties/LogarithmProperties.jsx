@@ -3,7 +3,7 @@ import SectionCard from "components/interface/SectionCard";
 import SideNoteCard from "components/interface/SideNoteCard";
 import CustomTypography from "components/interface/CustomTypography";
 import DisplayEquation from "components/interface/DisplayEquation";
-import Typography from "@mui/material/Typography";
+import SectionHeading from "components/interface/SectionHeading";
 
 import {
   synthSunsetMagenta,
@@ -30,9 +30,9 @@ const Component = () => (
       </CustomTypography>
     </SectionCard>
     <SideNoteCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Notation:
-      </Typography>
+      </SectionHeading>
       <ul>
         <li>
           <CustomTypography>
@@ -65,9 +65,9 @@ const Component = () => (
       </CustomTypography>
     </SideNoteCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Additional Properties:
-      </Typography>
+      </SectionHeading>
       <DisplayEquation>{`$$ log({\\color{${sunsetMagenta}}{a}}{\\color{${sunsetYellow}}{b}}) = log({\\color{${sunsetMagenta}}{a}}) +  log({\\color{${sunsetYellow}}{b}}) $$`}</DisplayEquation>
       <DisplayEquation>{`$$ log\\left (  \\frac{\\color{${sunsetMagenta}}{a}}{\\color{${sunsetYellow}}{b}} \\right ) = log({\\color{${sunsetMagenta}}{a}}) - log({\\color{${sunsetYellow}}{b}}) $$`}</DisplayEquation>
       <DisplayEquation>{`$$ log({\\color{${sunsetMagenta}}{a}}^{\\color{${sunsetYellow}}{b}}) = {\\color{${sunsetYellow}}{b}} * log({\\color{${sunsetMagenta}}{a}}) $$`}</DisplayEquation>
@@ -86,9 +86,9 @@ const Component = () => (
       </CustomTypography>
     </SectionCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Change of Base Formula:
-      </Typography>
+      </SectionHeading>
       <DisplayEquation>{`$$ log_{\\color{${sunsetMagenta}}{a}} ({\\color{${sunsetYellow}}{b}}) = \\frac{log({\\color{${sunsetYellow}}{b}})}{log({\\color{${sunsetMagenta}}{a}})} = \\frac{ln({\\color{${sunsetYellow}}{b}})}{ln({\\color{${sunsetMagenta}}{a}})} $$`}</DisplayEquation>
       <CustomTypography>
         This trick is useful for older calculators that don't allow you to find

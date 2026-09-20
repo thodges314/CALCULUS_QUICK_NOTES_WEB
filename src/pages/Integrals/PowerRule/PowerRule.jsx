@@ -5,7 +5,7 @@ import CustomTypography from "components/interface/CustomTypography";
 import DisplayEquation from "components/interface/DisplayEquation";
 import CustomLink from "components/interface/CustomLink";
 
-import Typography from "@mui/material/Typography";
+import SectionHeading from "components/interface/SectionHeading";
 
 import {
   synthSunsetMagenta,
@@ -25,9 +25,9 @@ const Component = () => (
       <CustomTypography>for {"$n \\ne -1$"}</CustomTypography>
     </SummaryCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Explanation
-      </Typography>
+      </SectionHeading>
       <CustomTypography>
         The Power Rule relates directly back to the{" "}
         <CustomLink href="/Derivatives/PowerRule">
@@ -45,9 +45,9 @@ const Component = () => (
       </CustomTypography>
     </SectionCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Example
-      </Typography>
+      </SectionHeading>
       <div>
         <DisplayEquation>
           {`$$ \\int {\\color{${sunsetMagenta}}{x}}^{\\color{${sunsetYellow}}{4}}\\mathrm{d}x = \\frac{{\\color{${sunsetMagenta}}{x}}^{\\color{${sunsetYellow}}{4+1}}}{{\\color{${sunsetYellow}}{4+1}}} + C = \\frac{x^5}{5}+C$$`}

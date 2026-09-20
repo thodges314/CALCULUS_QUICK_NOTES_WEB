@@ -5,7 +5,7 @@ import CustomTypography from "components/interface/CustomTypography";
 import DisplayEquation from "components/interface/DisplayEquation";
 import CustomLink from "components/interface/CustomLink";
 
-import Typography from "@mui/material/Typography";
+import SectionHeading from "components/interface/SectionHeading";
 
 import {
   synthSunsetMagenta,
@@ -26,9 +26,9 @@ const Component = () => (
       </DisplayEquation>
     </SummaryCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Explanation
-      </Typography>
+      </SectionHeading>
       <CustomTypography>
         The Constant Multiple Rule means that if you have a constant coefficient
         on an integrable function, you can pull the coefficient out in front of
@@ -45,9 +45,9 @@ const Component = () => (
       </CustomTypography>
     </SectionCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Example
-      </Typography>
+      </SectionHeading>
       <div>
         <DisplayEquation>
           {`$$ \\int {\\color{${sunsetMagenta}}{5}}~{\\color{${sunsetYellow}}{x}}~\\mathrm{d}x = {\\color{${sunsetMagenta}}{5}}\\int {\\color{${sunsetYellow}}{x}}~\\mathrm{d}x = {\\color{${sunsetMagenta}}{5}} {\\color{${sunsetYellow}}{\\left ( \\frac{x^2}{2} +C\\right )}} = \\frac{5}{2} x^2 +C$$`}

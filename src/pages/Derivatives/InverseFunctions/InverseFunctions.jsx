@@ -3,7 +3,7 @@ import SectionCard from "components/interface/SectionCard";
 import SideNoteCard from "components/interface/SideNoteCard";
 import CustomTypography from "components/interface/CustomTypography";
 import DisplayEquation from "components/interface/DisplayEquation";
-import Typography from "@mui/material/Typography";
+import SectionHeading from "components/interface/SectionHeading";
 import CustomLink from "components/interface/CustomLink";
 
 import {
@@ -31,9 +31,9 @@ const Component = () => (
       functions.
     </SideNoteCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Example
-      </Typography>
+      </SectionHeading>
       <CustomTypography>
         Suppose that we wanted to find{" "}
         <CustomLink href="/Derivatives/InverseTrigonometricDerivatives">

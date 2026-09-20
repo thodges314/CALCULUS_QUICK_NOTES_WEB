@@ -4,7 +4,7 @@ import SectionCard from "components/interface/SectionCard";
 import SideNoteCard from "components/interface/SideNoteCard";
 import CustomTypography from "components/interface/CustomTypography";
 import DisplayEquation from "components/interface/DisplayEquation";
-import Typography from "@mui/material/Typography";
+import SectionHeading from "components/interface/SectionHeading";
 import CustomTable from "components/interface/CustomTable";
 import CustomLink from "components/interface/CustomLink";
 
@@ -69,9 +69,9 @@ const Component = () => (
   <>
     <SummaryTable entries={entries} />
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Explanation
-      </Typography>
+      </SectionHeading>
       <CustomTypography>
         These are interesting mainly for the fact that you can derive them using{" "}
         <CustomLink href="/Integrals/IntegrationByParts">
@@ -93,9 +93,9 @@ const Component = () => (
       </CustomTypography>
     </SectionCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Derivation
-      </Typography>
+      </SectionHeading>
       <DisplayEquation>{`$$\\int tan^{-1}(x)\\mathrm{d}x $$`}</DisplayEquation>
       <CustomTypography>
         To fing the integral of the inverse tangent, we need to use{" "}

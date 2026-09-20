@@ -15,7 +15,7 @@ const TopMenu = ({ toggleDrawer = () => {} }) => {
   };
 
   return (
-    <header className="static flex w-full">
+    <header className="fixed top-0 left-0 right-0 z-50 flex w-full">
       <nav className="w-full bg-theme-background text-synth-sunset-magenta shadow-[2px_2px_2px_2px] shadow-synth-sunset-magenta">
         <div className="flex items-center min-h-14 sm:min-h-16 px-4 sm:px-6">
           <button

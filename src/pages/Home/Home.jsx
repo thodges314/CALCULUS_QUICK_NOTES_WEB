@@ -2,13 +2,13 @@ import SectionCard from "components/interface/SectionCard";
 import CustomTypography from "components/interface/CustomTypography";
 import CustomLink from "components/interface/CustomLink";
 import CustomTable from "components/interface/CustomTable";
-import Typography from "@mui/material/Typography";
+import SectionHeading from "components/interface/SectionHeading";
 
 const coolPages = [
   [
-    <Typography variant="h6" width="100%">
+    <SectionHeading>
       Interactive Pages
-    </Typography>,
+    </SectionHeading>,
   ],
   [
     <CustomLink href="/PreCalculus/ShiftingGraphsWithHAndK">
@@ -34,9 +34,9 @@ const coolPages = [
 
 const finishedPages = [
   [
-    <Typography variant="h6" width="100%">
+    <SectionHeading>
       Finished Pages
-    </Typography>,
+    </SectionHeading>,
   ],
   [
     <CustomLink href="/PreCalculus/ShiftingGraphsWithHAndK">

@@ -5,7 +5,7 @@ import CustomTypography from "components/interface/CustomTypography";
 import DisplayEquation from "components/interface/DisplayEquation";
 import CustomLink from "components/interface/CustomLink";
 
-import Typography from "@mui/material/Typography";
+import SectionHeading from "components/interface/SectionHeading";
 
 const entries = [
   [
@@ -58,9 +58,9 @@ const Component = () => (
   <>
     <SummaryTable entries={entries} />
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Explanation
-      </Typography>
+      </SectionHeading>
       <CustomTypography>
         For these, just focus on knowing the derivatives of the inverse
         functions of Sine, Secant and Tangent.

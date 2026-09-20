@@ -3,7 +3,7 @@ import SectionCard from "components/interface/SectionCard";
 import SideNoteCard from "components/interface/SideNoteCard";
 import CustomTypography from "components/interface/CustomTypography";
 import DisplayEquation from "components/interface/DisplayEquation";
-import Typography from "@mui/material/Typography";
+import SectionHeading from "components/interface/SectionHeading";
 import CustomTable from "components/interface/CustomTable";
 import CustomLink from "components/interface/CustomLink";
 
@@ -46,9 +46,9 @@ const Component = () => (
       <DisplayEquation>{`$$\\int{\\ln{(u)}}\\mathrm{d}u = u \\ln{(u)} - u + C$$`}</DisplayEquation>
     </SummaryCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Derivation: Part 1
-      </Typography>
+      </SectionHeading>
       <CustomTypography>
         This integration rule can be derived in the natural log case using{" "}
         <CustomLink href="/Integrals/IntegrationByParts">
@@ -114,9 +114,9 @@ const Component = () => (
       </CustomTypography>
     </SideNoteCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Derivation: Part 2
-      </Typography>
+      </SectionHeading>
       <CustomTypography>
         To find the general form, recall the old calculator trick:
       </CustomTypography>
@@ -152,9 +152,9 @@ const Component = () => (
       </CustomTypography>
     </SideNoteCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Example
-      </Typography>
+      </SectionHeading>
       <DisplayEquation>{`$$ \\int \\ln{\\left ( \\sin^2{(x)}+2\\right )}\\sin{(x)}\\cos{(x)}\\mathrm{d}x $$`}</DisplayEquation>
       <CustomTypography>Our solution will take the form:</CustomTypography>
       <DisplayEquation>{`$$\\int{\\ln{({\\color{${sunsetMagenta}}{u}})}}{\\color{${sunsetYellow}}{\\mathrm{d}u}} = {\\color{${sunsetMagenta}}{u}} \\ln{({\\color{${sunsetMagenta}}{u}})} - {\\color{${sunsetMagenta}}{u}} + C$$`}</DisplayEquation>

@@ -1,4 +1,5 @@
-import Typography from "@mui/material/Typography";
+import SectionHeading from "components/interface/SectionHeading";
+import InlineText from "components/interface/InlineText";
 
 import DisplayEquation from "components/interface/DisplayEquation";
 import CustomLink from "components/interface/CustomLink";
@@ -41,14 +42,14 @@ const Component = () => (
       <DisplayEquation>
         {"$$2\\pi \\int_{a}^{b} x f(x) \\mathrm{d}x\\;\\;$$"}
       </DisplayEquation>
-      <Typography>or</Typography>
+      <InlineText>or</InlineText>
       <DisplayEquation>
         {"$$\\;\\;2\\pi \\int_{a}^{b} y f(y) \\mathrm{d}y$$"}
       </DisplayEquation>
     </SummaryCard>
 
     <SectionCard>
-      <Typography variant="h6">Explanation</Typography>
+      <SectionHeading>Explanation</SectionHeading>
       <CustomTypography>
         The shell method is used for finding the volume of a solid of
         revolution. A solid of revolution is made by taking a graph of a
@@ -68,7 +69,7 @@ const Component = () => (
     </SectionCard>
 
     <SectionCard>
-      <Typography variant="h6">Example of Shell Method: Concentric Slices</Typography>
+      <SectionHeading>Example of Shell Method: Concentric Slices</SectionHeading>
       <CustomTypography>
         Suppose that you started with the graph of the region bounded by the
         x-axis ({`$g(x)=0$`}) and {`$f(x)=\\sin(x)$`} from {`$x=0$`} to {`$x=\\pi$`} and
@@ -92,7 +93,7 @@ const Component = () => (
     </SectionCard>
 
     <SectionCard>
-      <Typography variant="h6">Example of Shell Method: Continuous Integration</Typography>
+      <SectionHeading>Example of Shell Method: Continuous Integration</SectionHeading>
       <CustomTypography>
         Consider what would happen if you chose some {`$x$`} value, and used
         this to slice an infinitely thin cylindrical shell out of this solid.

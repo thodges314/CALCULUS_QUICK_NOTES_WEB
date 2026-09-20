@@ -1,7 +1,7 @@
 import SummaryCard from "components/interface/SummaryCard";
 import SectionCard from "components/interface/SectionCard";
 import CustomTypography from "components/interface/CustomTypography";
-import Typography from "@mui/material/Typography";
+import SectionHeading from "components/interface/SectionHeading";
 import CustomTable from "components/interface/CustomTable";
 import DisplayEquation from "components/interface/DisplayEquation";
 import HandKTableGraph from "interactivity/d3Graphs/HandKTableGraph";
@@ -86,9 +86,9 @@ const Component = () => (
       </CustomTypography>
     </SummaryCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Explanation
-      </Typography>
+      </SectionHeading>
       <CustomTypography>
         This idea is usually taught in a chapter on conic sections as one of
         many transformations. This is such a useful general principle in
@@ -97,9 +97,9 @@ const Component = () => (
       </CustomTypography>
     </SectionCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Example
-      </Typography>
+      </SectionHeading>
       <CustomTypography>
         Shift the graph of the parabola {"$ y=x^2 $"} to the right by {"$ 2 $"}.
       </CustomTypography>
@@ -182,9 +182,9 @@ const Component = () => (
       <HandKTableGraph />
     </SectionCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Another Example
-      </Typography>
+      </SectionHeading>
       <CustomTypography>
         Shift the graph of the parabola {"$ y=x^2 $"} to the right by {"$ 2 $"}{" "}
         and up by {"$ 1 $"}.
@@ -211,9 +211,9 @@ const Component = () => (
       <DisplayEquation>{`$$ y = (x-2)^2 + 1 $$`}</DisplayEquation>
     </SectionCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         An Example with Circles
-      </Typography>
+      </SectionHeading>
       <CustomTypography>
         Write an equation for a circle with a radius {`$2$`} centered at{" "}
         {`$(1,2)$`}.
@@ -262,9 +262,9 @@ const Component = () => (
       </CustomTypography>
     </SectionCard>
     <SectionCard>
-      <Typography variant="h6" width="100%">
+      <SectionHeading>
         Example with Trigonometry
-      </Typography>
+      </SectionHeading>
       <CustomTypography>
         Establish the identity{" "}
         {`$ \\cos{\\left ( \\theta - \\frac{\\pi}{2}\\right )} = \\sin{(\\theta)} $`}
