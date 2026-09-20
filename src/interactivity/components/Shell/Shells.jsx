@@ -4,6 +4,8 @@ import { ThickStraightLine } from "interactivity/components/Lines";
 import { CourierPrime } from "interactivity/components/Text";
 import {
   lightGrey,
+  shellDarkGrey,
+  shellSpecularGrey,
   synthSunsetPink,
 } from "interactivity/resources/constants/colors";
 import { DarkPhongMaterial } from "interactivity/resources/materials";
@@ -37,8 +39,8 @@ const ThickCylindricalShell = ({ r1, r2, h, sides }) => {
     <mesh ref={meshRef}>
       <meshPhongMaterial
         attach="material"
-        color={0x2b2b2b}
-        specular={0x555555}
+        color={shellDarkGrey}
+        specular={shellSpecularGrey}
         shininess={30}
         side={DoubleSide}
         flatShading={false}

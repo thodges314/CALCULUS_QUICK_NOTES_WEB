@@ -1,6 +1,6 @@
 import { useMemo, useEffect } from "react";
 import { BufferGeometry, Float32BufferAttribute, DoubleSide } from "three";
-import { synthSunsetPink } from "interactivity/resources/constants/colors";
+import { synthSunsetPink, specularWhite } from "interactivity/resources/constants/colors";
 
 const UnrollingShell = ({
   radius = 1,
@@ -80,7 +80,7 @@ const UnrollingShell = ({
       <meshPhongMaterial
         attach="material"
         color={color}
-        specular={0xffffff}
+        specular={specularWhite}
         shininess={40}
         side={DoubleSide}
         transparent={true}

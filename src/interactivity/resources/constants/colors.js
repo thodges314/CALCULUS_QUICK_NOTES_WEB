@@ -1,47 +1,32 @@
-const [medGrey, lightGrey, darkGrey] = [0x5a5a5a, 0xd3d3d3, 0x242424];
-const [
-  synthSunsetYellow,
-  synthSunsetOrange,
-  synthSunsetMagenta,
-  synthSunsetPink,
-  synthSunsetViolet,
-] = [0xffd319, 0xff901f, 0xff2975, 0xf222ff, 0x8c1eff];
+// Greyscale
+export const darkGrey  = '#242424';
+export const medGrey   = '#5a5a5a';
+export const lightGrey = '#d3d3d3';
 
-const [
-  synthCyberLightBlue,
-  synthCyberPink,
-  synthCyberDarkBlue,
-  synthCyberPurple,
-  synthCyberPaleBlue,
-  synthCyberBlack,
-] = [0x0b4abd, 0xde41cd, 0x072c94, 0xb16eb5, 0x93c8c4, 0x2c2e3b];
-// --color-1:	#8a04ed;
-// --color-2:	#ef9af2;
-// --color-3:	#240c76;
-// --color-4:	#570296;
-// --color-5:	#831187;
-// --color-6:	#0c0c0c;
+// Synth Sunset palette
+export const synthSunsetYellow  = '#ffd319';
+export const synthSunsetOrange  = '#ff901f';
+export const synthSunsetMagenta = '#ff2975';
+export const synthSunsetPink    = '#f222ff';
+export const synthSunsetViolet  = '#8c1eff';
 
-const anotherLightPink = 0xef9af2;
+// Synth Cyber palette
+export const synthCyberLightBlue = '#0b4abd';
+export const synthCyberPink      = '#de41cd';
+export const synthCyberDarkBlue  = '#072c94';
+export const synthCyberPurple    = '#b16eb5';
+export const synthCyberPaleBlue  = '#93c8c4';
+export const synthCyberBlack     = '#2c2e3b';
 
-const [themePurple, themeBackground] = [0xcf7bc1, 0x262335];
+// Misc
+export const anotherLightPink = '#ef9af2';
 
-export {
-  darkGrey,
-  lightGrey,
-  medGrey,
-  synthCyberDarkBlue,
-  synthCyberBlack,
-  synthCyberLightBlue,
-  synthCyberPaleBlue,
-  synthCyberPink,
-  synthCyberPurple,
-  synthSunsetMagenta,
-  synthSunsetOrange,
-  synthSunsetPink,
-  synthSunsetViolet,
-  synthSunsetYellow,
-  themeBackground,
-  themePurple,
-  anotherLightPink,
-};
+// Theme
+export const themePurple     = '#cf7bc1';
+export const themeBackground = '#262335';
+
+// Three.js scene colours (not used in CSS/Tailwind)
+export const ambientLightBlue   = '#91b2cb';
+export const shellDarkGrey      = '#2b2b2b';
+export const shellSpecularGrey  = '#555555';
+export const specularWhite      = '#ffffff';

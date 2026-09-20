@@ -6,6 +6,7 @@ import CustomSlider from "components/interface/CustomSlider";
 import { FormGroup, FormControlLabel } from "@mui/material";
 import ControlsCard, { ControlsRow } from "components/interface/ControlsCard";
 import CustomCheckbox from "components/interface/CustomCheckbox";
+import { ambientLightBlue } from "interactivity/resources/constants/colors";
 
 import {
   Axes,
@@ -59,7 +60,7 @@ const ShellMethodAccumulation = () => {
     >
       <CanvasCard height={height} width={width}>
         <Canvas dpr={[1, 2]} camera={{ position: cameraPosition }}>
-          <ambientLight color={0x91b2cb} intensity={2} />
+          <ambientLight color={ambientLightBlue} intensity={2} />
           <directionalLight position={[1123, 56, 79]} intensity={0.5} />
           <Environment
             files={
