@@ -1,6 +1,4 @@
-import MenuIcon from "@mui/icons-material/Menu";
-import HouseIcon from "@mui/icons-material/House";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { MenuIcon, HouseIcon, ArrowForwardIosIcon } from "components/interface/Icons/Icons";
 import { location } from "utils/utils";
 import { useNavigate, useLocation } from "react-router-dom";
 
