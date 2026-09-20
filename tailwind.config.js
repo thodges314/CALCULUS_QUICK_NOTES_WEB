@@ -29,37 +29,37 @@ export default {
     extend: {
       colors: {
         // Greyscale
-        'dark-grey':  darkGrey,
-        'med-grey':   medGrey,
+        'dark-grey': darkGrey,
+        'med-grey': medGrey,
         'light-grey': lightGrey,
 
         // Synth Sunset palette
-        'synth-yellow':  synthSunsetYellow,
-        'synth-orange':  synthSunsetOrange,
-        'synth-magenta': synthSunsetMagenta,
-        'synth-pink':    synthSunsetPink,
-        'synth-violet':  synthSunsetViolet,
+        'synth-sunset-yellow': synthSunsetYellow,
+        'synth-sunset-orange': synthSunsetOrange,
+        'synth-sunset-magenta': synthSunsetMagenta,
+        'synth-sunset-pink': synthSunsetPink,
+        'synth-sunset-violet': synthSunsetViolet,
 
         // Synth Cyber palette
-        'cyber-light-blue': synthCyberLightBlue,
-        'cyber-pink':       synthCyberPink,
-        'cyber-dark-blue':  synthCyberDarkBlue,
-        'cyber-purple':     synthCyberPurple,
-        'cyber-pale-blue':  synthCyberPaleBlue,
-        'cyber-black':      synthCyberBlack,
+        'synth-cyber-light-blue': synthCyberLightBlue,
+        'synth-cyber-pink': synthCyberPink,
+        'synth-cyber-dark-blue': synthCyberDarkBlue,
+        'synth-cyber-purple': synthCyberPurple,
+        'synth-cyber-pale-blue': synthCyberPaleBlue,
+        'synth-cyber-black': synthCyberBlack,
 
         // Misc
-        'light-pink': anotherLightPink,
+        'another-light-pink': anotherLightPink,
 
         // Theme
-        'theme-purple':     themePurple,
+        'theme-purple': themePurple,
         'theme-background': themeBackground,
 
         // Three.js scene colours (included for completeness, rarely needed in CSS)
-        'ambient-light-blue':  ambientLightBlue,
-        'shell-dark-grey':     shellDarkGrey,
+        'ambient-light-blue': ambientLightBlue,
+        'shell-dark-grey': shellDarkGrey,
         'shell-specular-grey': shellSpecularGrey,
-        'specular-white':      specularWhite,
+        'specular-white': specularWhite,
       },
     },
   },

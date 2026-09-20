@@ -1,15 +1,7 @@
-import Paper from "@mui/material/Paper";
-import { styled } from "@mui/material/styles";
-import { synthCyberBlack } from "interactivity/resources/constants/colors";
-import { hexToRgba } from "utils/utils";
-
-const BackgroundPaper = styled(Paper)({
-  width: "1200px",
-  minHeight: `calc(100vh - 100px)`,
-  margin: "0 auto 100px auto",
-  borderRadius: "0px 0px 16px 16px",
-  padding: "76px 16px 46px 16px",
-  backgroundColor: hexToRgba(synthCyberBlack),
-});
-
-export default BackgroundPaper;
+export default function BackgroundPaper({ children }) {
+  return (
+    <div className="w-300 min-h-[calc(100vh-100px)] mx-auto mb-25 rounded-b-2xl pt-19 px-4 pb-11.5 bg-synth-cyber-black">
+      {children}
+    </div>
+  );
+}
