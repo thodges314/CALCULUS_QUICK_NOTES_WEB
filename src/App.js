@@ -1,7 +1,6 @@
 import "./App.css";
 import { useState, lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
-import { CssBaseline, GlobalStyles } from "@mui/material";
 import { MathJaxContext } from "better-react-mathjax";
 import BackgroundPaper from "components/interface/BackgroundPaper";
 import LoadingPage from "components/LoadingPage";
@@ -83,8 +82,6 @@ function App() {
       onStartup={(mathJax) => (mathJax.Hub.processSectionDelay = 0)}
     >
       <div className="App">
-        <CssBaseline />
-        <GlobalStyles styles={{ body: { backgroundColor: "#e7ebf0" } }} />
         <TopMenu toggleDrawer={() => setDrawerOpen(!drawerOpen)} />
         <MenuDrawer
           open={drawerOpen}
