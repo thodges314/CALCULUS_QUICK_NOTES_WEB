@@ -1,3 +1,3 @@
-import { CustomSlider } from "./CustomSlider";
+import CustomSlider from "./CustomSlider";
 
 export default CustomSlider;
