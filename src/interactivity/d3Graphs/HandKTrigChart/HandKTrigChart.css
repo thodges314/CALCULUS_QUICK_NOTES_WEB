@@ -3,6 +3,10 @@
   stroke-width: 0.25px;
 }
 
+.grid-lines .domain {
+  display: none;
+}
+
 .orange-grid-lines line {
   stroke: #ff901f;
   stroke-width: 0.35px;

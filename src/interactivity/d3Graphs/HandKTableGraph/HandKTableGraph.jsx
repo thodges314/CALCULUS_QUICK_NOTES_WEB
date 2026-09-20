@@ -58,7 +58,7 @@ for (let i = -5; i <= 5; i++) {
   row1.push(
     <div key={i} className="tableNumber" style={{ color: sunsetYellow }}>
       {i}
-    </div>
+    </div>,
   );
 }
 // row  2
@@ -74,7 +74,7 @@ const row2 = [
 ];
 for (let i = -5; i <= 5; i++) {
   row2.push(
-    <div key={i} className="tableNumber" style={{ color: sunsetYellow }} />
+    <div key={i} className="tableNumber" style={{ color: sunsetYellow }} />,
   );
 }
 // row  3
@@ -90,7 +90,7 @@ const row3 = [
 ];
 for (let i = -5; i <= 5; i++) {
   row3.push(
-    <div key={i} className="tableNumber" style={{ color: sunsetYellow }} />
+    <div key={i} className="tableNumber" style={{ color: sunsetYellow }} />,
   );
 }
 
@@ -176,7 +176,7 @@ const HandKTableGraph = () => {
       .each((_d, i, nodes) =>
         d3
           .select(nodes[i])
-          .style("left", `${50 * (indexToNumbersScale(i) + 5)}px`)
+          .style("left", `${50 * (indexToNumbersScale(i) + 5)}px`),
       );
 
     numbersXMinusHSqrRef.current = d3
@@ -190,7 +190,7 @@ const HandKTableGraph = () => {
       .each((_d, i, nodes) =>
         d3
           .select(nodes[i])
-          .style("left", `${50 * (indexToNumbersScale(i) + 5)}px`)
+          .style("left", `${50 * (indexToNumbersScale(i) + 5)}px`),
       );
   });
 

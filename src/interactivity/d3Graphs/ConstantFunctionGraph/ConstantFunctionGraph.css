@@ -3,6 +3,10 @@
   stroke-width: 0.25px;
 }
 
+.grid-lines .domain {
+  display: none;
+}
+
 .axis .domain {
   stroke: #93c8c4;
 }

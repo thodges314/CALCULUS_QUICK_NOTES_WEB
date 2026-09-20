@@ -1,33 +1,10 @@
-import Card from "@mui/material/Card";
-
-import { hexToRgba } from "utils/utils";
-import {
-  synthCyberBlack,
-  synthCyberPink,
-  synthSunsetPink,
-} from "interactivity/resources/constants/colors";
-
-const darkColour = hexToRgba(synthCyberBlack);
-const cyberPink = hexToRgba(synthCyberPink);
-const sunsetPink = hexToRgba(synthSunsetPink);
-
 const CanvasCard = ({ height, width, children }) => (
-  <Card
-    sx={{
-      height: height,
-      width: width,
-      mt: "20px",
-      mb: 0,
-      boxShadow: `2px 2px 2px 2px ${cyberPink}`,
-      borderLeft: `1px solid ${sunsetPink}`,
-      borderRight: `1px solid ${sunsetPink}`,
-      borderBottom: `1px solid ${sunsetPink}`,
-      borderTop: `1px solid ${sunsetPink}`,
-      backgroundColor: darkColour,
-    }}
+  <div
+    style={{ height, width }}
+    className="relative isolate box-border mt-5 mb-0 rounded overflow-hidden border border-synth-sunset-pink bg-synth-cyber-black shadow-[2px_2px_2px_2px_#de41cd]"
   >
     {children}
-  </Card>
+  </div>
 );
 
 export default CanvasCard;
